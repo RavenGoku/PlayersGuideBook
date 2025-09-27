@@ -145,7 +145,7 @@ int AskForNumberRange(string text, int min, int max)
 
 //-------------------------------------------------------------
 /// <summary>
-/// Cannon hit point calculation, calculates if cannon strenght is 10,3 or 1, depend of what round.
+/// Cannon hit point calculation, calculates if cannon strength is 10,3 or 1, depend of what round.
 /// </summary>
 int CannonHitPoint(int gRound)
 {

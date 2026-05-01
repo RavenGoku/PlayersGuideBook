@@ -28,22 +28,8 @@ string user_2 = "Hunter";
 int number, guess_number;
 
 //input starting number validation
-while (true)
-{
-    Console.Write($"{user_1}, enter a number between 0 and 100: ");
-    number = Convert.ToInt32(Console.ReadLine());
-    if (number <= 0 || number >= 100)
-    {
-        Console.WriteLine("Please enter correct number!");
-        continue;
-    }
-    else
-    {
-        //Correct input, so breaking the loop
-        Console.Clear();
-        break;
-    }
-}
+
+number = AskForNumberInRange($"{user_1}, enter a number between 0 and 100: ", 0, 100);
 
 //Starting guess game
 Console.WriteLine($"{user_2}, find your {user_1}. ");
@@ -66,3 +52,19 @@ do
     }
 } while (guess_number != number);
 
+
+
+//--------------------------------- Functions -------------------------------------------------
+int AskForNumberInRange(string text, int min, int max)
+{
+    while (true)
+    {
+        Console.WriteLine(text);
+        int number = Convert.ToInt32(Console.ReadLine());
+        if (number >= min && number <= max)
+        {
+            return number;
+        }
+        Console.WriteLine("Number is out of range, please try again!\n");
+    }
+}

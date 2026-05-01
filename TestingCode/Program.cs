@@ -1,28 +1,26 @@
 ﻿
 
 
-int[] array = new int[] { 4, 51, -7, 13, -99, 15, -8, 45, 90 };
-int currentSmallest = int.MaxValue; // Start higher than anything in the array.
 
-foreach( int small in array)
+int AskForNumber(string text)
 {
-    if ( small < currentSmallest)
+    Console.WriteLine(text);
+    int number = Convert.ToInt32(Console.ReadLine());
+    return number;
+}
+
+int AskForNumberInRange(string text, int min, int max)
+{
+    while (true)
     {
-        currentSmallest = small;
+        Console.WriteLine(text);
+        int number = Convert.ToInt32(Console.ReadLine());
+        if (number >= min && number <= max)
+        {
+            return number;
+        }
+        Console.WriteLine("Number is out of range, please try again!");
     }
 }
-Console.WriteLine("Smallest number in array is:" + currentSmallest);
 
 
-
-//int[] array = new int[] { 4, 51, -7, 13, -99, 15, -8, 45, 90 };
-int total = 0;
-float average;
-
-foreach (int number in array)
-{
-    total += number;
-}
-
-average = (float)total / array.Length;
-Console.WriteLine($"Average number in array is: {average}");

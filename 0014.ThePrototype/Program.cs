@@ -68,3 +68,4 @@ int AskForNumberInRange(string text, int min, int max)
         Console.WriteLine("Number is out of range, please try again!\n");
     }
 }
+

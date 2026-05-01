@@ -36,49 +36,60 @@ Objectives:
 
 using System.Net.Sockets;
 
-ChestState chest = ChestState.Locked;
+Console.Title = "Simula's Test";
 
+//Method for choosing what to do
 Console.WriteLine($"Simulas chest is Locked.\nManipulate the chest with the: 'lock', 'unlock', 'open', and 'close' words to try open it.");
 
-while (true)
+ChestStates();
+
+//======================================================================================
+
+void ChestStates()
 {
-    Console.Write($"The chest is '{chest}'.What do you want to do? ");
-    string action = Console.ReadLine();
-
-    switch (chest)
+    state_of_chest simulas_chest = state_of_chest.Locked;
+    string action = "";
+    do
     {
-        case ChestState.Locked:
-        if (action == "unlock") chest = ChestState.Unlocked;
-        else
-            Console.WriteLine("You can unlock\n");
-        break;
-        
-        case ChestState.Unlocked:
-        if (action == "open") chest = ChestState.Open;
-        else if (action == "lock") chest = ChestState.Locked;
-        else
-            Console.WriteLine("You can 'open' or 'lock'\n");
-        break;
+        Console.Write($"The chest is {simulas_chest}.What do you want to do? ");
+        action = Console.ReadLine().ToLower();
+        switch (simulas_chest)
+        {
+            case state_of_chest.Locked:
+            if (action == "unlock")
+            {
+                simulas_chest = state_of_chest.Closed;
+                Console.WriteLine("Chest is Unlocked.");
+            }
+            else if (action == "lock")
+                Console.WriteLine("Chest is already Locked.");
+            else
+                Console.WriteLine("This action is not allowed!");
+            break;
 
-        case ChestState.Open:
-        if (action == "close") chest = ChestState.Unlocked;
-        else
-            Console.WriteLine("You can 'close'\n");
-        break;
+            case state_of_chest.Closed:
+            if (action == "open")
+                simulas_chest = state_of_chest.Open;
+            else if (action == "lock")
+                simulas_chest = state_of_chest.Locked;
+            else if (action == "close")
+                Console.WriteLine("Chest is already Closed.");
+            else
+                Console.WriteLine("This action is not allowed!");
+            break;
 
-        default:
-        break;
+            case state_of_chest.Open:
+            if (action == "close")
+                simulas_chest = state_of_chest.Closed;
+            else
+                Console.WriteLine("This action is not allowed!");
+            break;
+        }
     }
+    while (action != "exit");
 
-    if (action == "exit")
-    {
-        Console.WriteLine("Game End");
-        break;
-    }
-
+    return;
 }
 
-
-
-
-enum ChestState {Unknown = 0, Locked,Unlocked,Open};
+internal enum state_of_chest
+{ Closed, Open, Locked };

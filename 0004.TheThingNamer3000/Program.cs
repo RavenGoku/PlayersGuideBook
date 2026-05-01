@@ -9,4 +9,4 @@ string b = Console.ReadLine(); // store type of thing
 string c = "of Doom"; /* store string literal */
 string d = "3000"; /* store string literal number */
 
-Console.WriteLine("The " + b + " " + a + " " +  c + " " + d + "!");
+Console.WriteLine("The " + b + " " + a + " " + c + " " + d + "!");

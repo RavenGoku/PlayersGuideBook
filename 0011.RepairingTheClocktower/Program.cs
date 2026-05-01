@@ -31,19 +31,20 @@ Console.WriteLine("The recent attacks damaged the great Clocktower of Consolas. 
 
 Console.Write("\n\nInput clock number: ");
 clockNumber = Convert.ToInt32(Console.ReadLine());
-bool isEven = clockNumber%2 == 0;
+bool isEven = clockNumber % 2 == 0;
 
 
 if (isEven)
 {
     Console.WriteLine("Tick");
-}else
+}
+else
 {
     Console.WriteLine("Tock");
 }
 
 bool stillHasShields = shield > 0;
-bool stillHasArmor  = armor > 0;
+bool stillHasArmor = armor > 0;
 
 if (shield <= 0)
 {

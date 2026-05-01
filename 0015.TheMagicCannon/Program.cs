@@ -21,12 +21,12 @@ Objectives:
 Console.Title = "The Magic Cannon";
 Console.WriteLine("=================== The Magic Cannon ==============");
 
-for(int crankTurn = 1; crankTurn <=100; crankTurn++)
+for (int crankTurn = 1; crankTurn <= 100; crankTurn++)
 {
-    
+
     if (crankTurn % 3 == 0 && crankTurn % 5 == 0)
     {
-        
+
         Console.ForegroundColor = ConsoleColor.Blue;
         Console.Write($"{crankTurn}: Electric and Fire\n");
 
@@ -36,7 +36,7 @@ for(int crankTurn = 1; crankTurn <=100; crankTurn++)
         Console.ForegroundColor = ConsoleColor.Red;
         Console.Write($"{crankTurn}: Fire\n");
     }
-    else if(crankTurn % 5 == 0)
+    else if (crankTurn % 5 == 0)
     {
         Console.ForegroundColor = ConsoleColor.Yellow;
         Console.Write($"{crankTurn}: Electric\n");
@@ -46,8 +46,8 @@ for(int crankTurn = 1; crankTurn <=100; crankTurn++)
         Console.ResetColor();
         Console.Write($"{crankTurn}: Normal\n");
     }
-    Console.ResetColor(); 
-    
+    Console.ResetColor();
+
 }
 
 

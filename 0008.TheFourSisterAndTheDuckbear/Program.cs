@@ -36,7 +36,7 @@ int eggsCollected = AskForNumber("\nHow many eggs they collected today?: ");
 sistersEggs = eggsCollected / 4;
 duckbearEggs = eggsCollected % 4;
 
-Console.WriteLine("Four Sisters got: " + sistersEggs  + " eggs each today");
+Console.WriteLine("Four Sisters got: " + sistersEggs + " eggs each today");
 Console.WriteLine("Duckbear got: " + duckbearEggs);
 
 int AskForNumber(string text)

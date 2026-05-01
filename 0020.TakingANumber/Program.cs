@@ -22,37 +22,37 @@ Objectives:
 
 
 
-    //================== Functions ================================
-    /// <summary>
-    /// Ask user for a number, then wait for user's number input;
-    /// </summary>
-    int AskForNumber(string text)
-    {
-        Console.Write(text);
-        int number = Convert.ToInt32(Console.ReadLine());
-        return number;
-    }
+//================== Functions ================================
+/// <summary>
+/// Ask user for a number, then wait for user's number input;
+/// </summary>
+int AskForNumber(string text)
+{
+    Console.Write(text);
+    int number = Convert.ToInt32(Console.ReadLine());
+    return number;
+}
     ;
 
-    //-------------------------------------------------------------
-    int AskForNumberRange(string text, int min, int max)
+//-------------------------------------------------------------
+int AskForNumberRange(string text, int min, int max)
+{
+    int number = 0;
+    while (true)
     {
-        int number = 0;
-        while (true)
-        {
-            number = AskForNumber(text);
-            if (number < min) Console.WriteLine("Is not within the range, try again!");
-            else if (number > max) Console.WriteLine("Is not within the range, try again!");
-            else break;
-        }
-        return number;
+        number = AskForNumber(text);
+        if (number < min) Console.WriteLine("Is not within the range, try again!");
+        else if (number > max) Console.WriteLine("Is not within the range, try again!");
+        else break;
     }
+    return number;
+}
 
-    //-------------------------------------------------------------
+//-------------------------------------------------------------
 
 
 //=========================== Main ==================================
-int inputNumber = AskForNumberRange("Player 1, input number between 0 and 100: ",0,100);
+int inputNumber = AskForNumberRange("Player 1, input number between 0 and 100: ", 0, 100);
 Console.Clear();
 
 int guessNumber = AskForNumber("Player 2, try guess the number: ");
@@ -60,10 +60,10 @@ while (true)
 {
     if (guessNumber < inputNumber) Console.WriteLine($"{guessNumber} is too low.");
     else if (guessNumber > inputNumber) Console.WriteLine($"{guessNumber} is too high.");
-    else 
+    else
     {
-        Console.WriteLine("Congratulation! You guessed the number!"); 
-        break; 
+        Console.WriteLine("Congratulation! You guessed the number!");
+        break;
     }
     guessNumber = AskForNumber("Try again: ");
 }

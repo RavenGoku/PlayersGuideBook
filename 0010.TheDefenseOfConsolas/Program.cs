@@ -46,7 +46,7 @@ Console.WriteLine("Deploy to:");
 Console.BackgroundColor = ConsoleColor.Blue;
 Console.ForegroundColor = ConsoleColor.Black;
 Console.WriteLine($"({row},{--column})");
-Console.Beep(500, 700); 
+Console.Beep(500, 700);
 
 Console.BackgroundColor = ConsoleColor.Magenta;
 Console.ForegroundColor = ConsoleColor.Black;

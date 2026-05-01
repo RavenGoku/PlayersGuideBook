@@ -28,7 +28,8 @@ int AskForNumber(string text)
     Console.Write(text);
     int number = Convert.ToInt32(Console.ReadLine());
     return number;
-};
+}
+;
 //------------------------------------------------------
 int Countdown(int count)
 {

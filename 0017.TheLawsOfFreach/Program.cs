@@ -19,7 +19,7 @@ Console.Title = "The law of Freach";
 
 int[] array = new int[] { 4, -51, -7, 13, 2, -99, 15, -3, 45, 90, -102, 202, -5 };
 int currentSmalest = int.MaxValue;
-foreach(int number in array)
+foreach (int number in array)
 {
     if (number < currentSmalest)
     {
@@ -29,11 +29,11 @@ foreach(int number in array)
 Console.WriteLine($"Current smallest number is {currentSmalest}");
 
 int total = 0;
-foreach(int number in array)
+foreach (int number in array)
 {
     total += number;
 }
-float average = (float)total/array.Length;
+float average = (float)total / array.Length;
 Console.WriteLine($"Average number is {average}");
 
 

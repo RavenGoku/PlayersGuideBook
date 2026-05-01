@@ -34,8 +34,6 @@ Objectives:
 
  */
 
-using System.Net.Sockets;
-
 Console.Title = "Simula's Test";
 
 //Method for choosing what to do
@@ -56,34 +54,34 @@ void ChestStates()
         switch (simulas_chest)
         {
             case state_of_chest.Locked:
-            if (action == "unlock")
-            {
-                simulas_chest = state_of_chest.Closed;
-                Console.WriteLine("Chest is Unlocked.");
-            }
-            else if (action == "lock")
-                Console.WriteLine("Chest is already Locked.");
-            else
-                Console.WriteLine("This action is not allowed!");
-            break;
+                if (action == "unlock")
+                {
+                    simulas_chest = state_of_chest.Closed;
+                    Console.WriteLine("Chest is Unlocked.");
+                }
+                else if (action == "lock")
+                    Console.WriteLine("Chest is already Locked.");
+                else
+                    Console.WriteLine("This action is not allowed!");
+                break;
 
             case state_of_chest.Closed:
-            if (action == "open")
-                simulas_chest = state_of_chest.Open;
-            else if (action == "lock")
-                simulas_chest = state_of_chest.Locked;
-            else if (action == "close")
-                Console.WriteLine("Chest is already Closed.");
-            else
-                Console.WriteLine("This action is not allowed!");
-            break;
+                if (action == "open")
+                    simulas_chest = state_of_chest.Open;
+                else if (action == "lock")
+                    simulas_chest = state_of_chest.Locked;
+                else if (action == "close")
+                    Console.WriteLine("Chest is already Closed.");
+                else
+                    Console.WriteLine("This action is not allowed!");
+                break;
 
             case state_of_chest.Open:
-            if (action == "close")
-                simulas_chest = state_of_chest.Closed;
-            else
-                Console.WriteLine("This action is not allowed!");
-            break;
+                if (action == "close")
+                    simulas_chest = state_of_chest.Closed;
+                else
+                    Console.WriteLine("This action is not allowed!");
+                break;
         }
     }
     while (action != "exit");

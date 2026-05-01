@@ -204,7 +204,8 @@ while (end_game == false)
     game_round++;
 
     end_game = is_Game_End(manticore_hp, city_hp);
-};
+}
+;
 
 
 

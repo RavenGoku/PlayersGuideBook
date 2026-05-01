@@ -15,10 +15,8 @@ Objectives:
  */
 
 //gpt help me out with first objective naming only, i've got the code 
-using System.Xml.Serialization;
-
-int x_value=0,
-    y_value=0;
+int x_value = 0,
+    y_value = 0;
 
 // Prompt the user for x and y coordinates
 Console.Write("Enter the x coordinate of the enemy: ");

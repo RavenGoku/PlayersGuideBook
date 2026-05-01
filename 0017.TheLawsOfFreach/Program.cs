@@ -15,6 +15,8 @@ Objectives:
 
  */
 
+Console.Title = "The law of Freach";
+
 int[] array = new int[] { 4, -51, -7, 13, 2, -99, 15, -3, 45, 90, -102, 202, -5 };
 int currentSmalest = int.MaxValue;
 foreach(int number in array)

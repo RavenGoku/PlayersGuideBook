@@ -23,43 +23,46 @@ Objectives:
  */
 
 Console.Title = " The Prototype";
-int inputNumber=0;
-int hunterNumber=0;
+string user_1 = "Prey";
+string user_2 = "Hunter";
+int number, guess_number;
 
-do
+//input starting number validation
+while (true)
 {
-    Console.Write("User 1, enter a number between 0 and 100: ");
-    inputNumber = Convert.ToInt32(Console.ReadLine());
-    if (inputNumber < 0 || inputNumber > 100)
+    Console.Write($"{user_1}, enter a number between 0 and 100: ");
+    number = Convert.ToInt32(Console.ReadLine());
+    if (number <= 0 || number >= 100)
     {
-        Console.WriteLine("User 1, You typed wrong number, try again!");
-        Console.WriteLine();
+        Console.WriteLine("Please enter correct number!");
         continue;
     }
-  
-        Console.Clear();
-        Console.Write("Hunter, try to guess the number User 1 type in: ");
-    
-    do
+    else
     {
-        hunterNumber = Convert.ToInt32(Console.ReadLine());
-        if (hunterNumber > inputNumber)
-        {
-            Console.WriteLine($"{hunterNumber} is too high.");
-            Console.Write("What is your next guess? ");
-            continue;
-        }else if (hunterNumber < inputNumber)
-        {
-            Console.WriteLine($"{hunterNumber} is too low.");
-            Console.Write("What is your next guess? ");
-            continue;
-        }
-        else
-        {
-            Console.WriteLine($"Congratulation! You guessed the number!");
-        }
+        //Correct input, so breaking the loop
+        Console.Clear();
+        break;
+    }
+}
 
-    } while (inputNumber != hunterNumber);
+//Starting guess game
+Console.WriteLine($"{user_2}, find your {user_1}. ");
+do
+{
+    Console.Write("What is your next guess? ");
+    guess_number = Convert.ToInt32(Console.ReadLine());
 
-    break;
-} while(true);
+    if (guess_number < number)
+    {
+        Console.WriteLine($"{guess_number} is too low");
+    }
+    else if (guess_number > number)
+    {
+        Console.WriteLine($"{guess_number} is too high.");
+    }
+    else
+    {
+        Console.WriteLine("You guessed the number!");
+    }
+} while (guess_number != number);
+

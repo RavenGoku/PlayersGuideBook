@@ -31,75 +31,65 @@ Objectives:
 
  */
 
-//My Solution---------------------------------------------------
+/*My Solution---------------------------------------------------
 
-//Console.Title = "Buying Inventory";
-//int choice = 0;
-//int itemCost = 0;
-//string ItemName = "";
+double rope = 10,
+    torches = 15,
+    climbing_equipment = 25,
+    clean_water = 1,
+    machete = 20,
+    canoe = 200,
+    food_supplies = 1; 
 
-//Console.Write("The following items are available:" +
-//    "\n1 – Rope" +
-//    "\n2 – Torches" +
-//    "\n3 – Climbing Equipment" +
-//    "\n4 – Clean Water" +
-//    "\n5 – Machete" +
-//    "\n6 – Canoe" +
-//    "\n7 – Food Supplies" +
-//    "\nWhat number do you want to see the price of? ");
+double discount;
 
-//choice = Convert.ToInt16(Console.ReadLine());
-//Console.Write("What is your name? ");
+Console.WriteLine("Hello Customer, what's you're name? ");
+string name = Console.ReadLine();
 
-//string customerName = Console.ReadLine()?? string.Empty;
+bool is_hero = name.Equals("Goku",StringComparison.OrdinalIgnoreCase);
 
-//   switch (choice)
-//    {
-//        case 1:
-//            ItemName = "Rope";
-//            itemCost = 10;
-//            break;
+discount = is_hero ? 0.5 : 1.0;
 
-//        case 2:
-//            ItemName = "Torches";
-//            itemCost = 15;
-//            break;
+if(is_hero)
+{
+    Console.WriteLine($"Hero {name}? Then for you is 50% discount!");
+}
 
-//        case 3:
-//            ItemName = "Climbing Equipment";
-//            itemCost = 25;
-//            break;
 
-//        case 4:
-//            ItemName = "Clean Water";
-//            itemCost = 1;
-//            break;
 
-//        case 5:
-//            ItemName = "Machete";
-//            itemCost = 20;
-//            break;
+Console.Write(@"The following items are available:
+1 – Rope
+2 – Torches
+3 – Climbing Equipment
+4 – Clean Water
+5 – Machete
+6 – Canoe
+7 – Food Supplies
+8 - exit
+What number do you want to see the price of? ");
+int new_choice = Convert.ToInt32(Console.ReadLine());
 
-//        case 6:
-//            ItemName = "Canoe";
-//            itemCost = 200;
-//            break;
-
-//        case 7:
-//            ItemName = "Food Supplies";
-//            itemCost = 1;
-//            break;
-//    };
-
-//if (customerName == "Goku")
-//{
-//    Console.WriteLine($"Because you are a Hero, You got 50% discount!");
-//    Console.WriteLine($"{ItemName} cost {(double)itemCost / 2} gold.");
-//}
-//else
-//{
-//    Console.WriteLine($"{ItemName} cost {itemCost} gold.");
-//};
+while (new_choice != 8)
+{
+    string response = "";
+    
+        response = new_choice switch
+        {
+            1 => $"Rope: {rope * discount} gold",
+            2 => $"Torches: {torches * discount} gold",
+            3 => $"Climbing Equipment: {climbing_equipment * discount} gold",
+            4 => $"Clean Water: {clean_water * discount} gold",
+            5 => $"Machete: {machete * discount} gold",
+            6 => $"Canoe: { canoe * discount} gold",
+            7 => $"Food Supplies: {food_supplies * discount } gold",
+            _ => $"Unavailable at the moment."
+        };
+        Console.WriteLine(
+            response + "\n");
+        Console.Write("What number do you want to see the price of? ");
+        new_choice = Convert.ToInt32(Console.ReadLine());
+}
+ */
 
 //RB Solution -------------------------------------------------------------------------------------
 

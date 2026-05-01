@@ -17,22 +17,37 @@ Objectives:
 
  */
 
+Console.Title = "The Replicator of D'To";
 int[] array = new int[5];
+int[] replication_magic = new int[5];
+
+//Ask the user for 5 numbers -------------------------------------------
+Console.WriteLine("User, please input 5 numbers in the replicator.");
 for (int i = 0; i < array.Length; i++)
 {
-    Console.Write($"Use input [{i+1}] number: ");
-    int input = Convert.ToInt32(Console.ReadLine());
-    array[i] = input;
+    Console.Write($"Input {i + 1} number: ");
+    array[i] = Convert.ToInt32(Console.ReadLine());
 }
 
-int[] copyArray = new int[5];
-for (int i=0;i < copyArray.Length; i++)
+// replicate the array ---------------------------------------------------
+for (int i = 0; i < array.Length; i++)
 {
-    copyArray[i] = array[i];
+    replication_magic[i] = array[i];
 }
+Console.WriteLine();
 
-for (int i=0; i < array.Length; i++)
+// Display original array ------------------------------------------------
+Console.Write("Array: ");
+foreach (int numbers in array)
 {
-    Console.WriteLine($"First array {i+1}: {array[i],-5} || Copy array {i+1}: {copyArray[i],-5}");
+    Console.Write(numbers + ", ");
 }
+Console.WriteLine();
 
+// Display the replicated array ------------------------------------------------
+Console.Write("Replicator array: ");
+foreach (int numbers in replication_magic)
+{
+    Console.Write(numbers + ", ");
+}
+Console.WriteLine();

@@ -43,7 +43,7 @@ Console.WriteLine($"Simulas chest is Locked.\nManipulate the chest with the: 'lo
 
 ChestStates();
 
-//======================================================================================
+//============================== Functions ===========================================
 
 void ChestStates()
 {

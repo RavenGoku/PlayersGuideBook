@@ -32,7 +32,7 @@ decimal signedDecimal = -7;
 bool trueFalse = false;
 
 char aLetter = 'A';
-string aWord = "Hello World";
+string aWord = "Hello, World!";
 
 Console.WriteLine("unsignedByte = " + unsignedByte);
 Console.WriteLine("unsignedShort = " + unsignedShort);

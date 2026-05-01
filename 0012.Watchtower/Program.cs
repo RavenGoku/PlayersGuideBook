@@ -17,52 +17,47 @@ Objectives:
 //gpt help me out with first objective naming only, i've got the code 
 using System.Xml.Serialization;
 
-int x=0,
-    y=0;
+int x_value=0,
+    y_value=0;
 
 // Prompt the user for x and y coordinates
 Console.Write("Enter the x coordinate of the enemy: ");
-x = Convert.ToInt32(Console.ReadLine());
+x_value = Convert.ToInt32(Console.ReadLine());
 
 Console.Write("Enter the y coordinate of the enemy: ");
-y = Convert.ToInt32(Console.ReadLine());
+y_value = Convert.ToInt32(Console.ReadLine());
 
 string response = "";
 
-if (x<0)
+if (x_value == 0 && y_value == 0)
 {
-    if (y > 0 || y < 0)
-    {
-        response = y > 0 ? "The enemy is to the northwest!" : "The enemy is to the southwest";
-    } 
-    else if (y == 0)
-    {
-        response = "The enemy is to the west!";
-    }
+    response = "Enemy is here!";
 
-}else if (x == 0)
+}
+else if (x_value < 0)
 {
-    if (y > 0 || y < 0)
-    {
-        response = y > 0 ? "The enemy is to the north!" : "The enemy is to the south";
-    }
-    else if (y == 0)
-    {
-        response = "The enemy is Here!";
-    }
-    
-}else if (x > 0)
+    if (y_value > 0)
+        response = "Enemy is to the northwest!";
+    else if (y_value < 0)
+        response = "Enemy is to the southwest!";
+    else
+        response = "Enemy is to the west!";
+}
+else if (x_value > 0)
 {
-    if (y > 0 || y < 0)
-    {
-        response = y > 0 ? "The enemy is to the northeast!" : "The enemy is to the southeast";
-
-    }
-    else if (y == 0)
-    {
-        response = "The enemy is to the east!";
-
-    }
+    if (y_value > 0)
+        response = "Enemy is to the northeast!";
+    else if (y_value < 0)
+        response = "Enemy is to the southeast!";
+    else
+        response = "Enemy is to the east!";
+}
+else // x == 0
+{
+    if (y_value > 0)
+        response = "Enemy is to the north!";
+    else if (y_value < 0)
+        response = "Enemy is to the south!";
 }
 Console.WriteLine(response);
 

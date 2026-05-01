@@ -30,29 +30,18 @@ Console.WriteLine("=========================== { The Dominion of Kings } =======
     "\r\nduchy is worth 3 points, and every province is worth 6 points. They just need a program that will allow" +
     "\r\nthem to enter their current holdings and compute a point total.\n\n");
 
-//My short version of this code 
 
-//Console.Write("Input how many estates you have: ");
-//result += estate * Convert.ToInt32(Console.ReadLine());
-
-//Console.Write("Input how many duchies you have: ");
-//result += duchy * Convert.ToInt32(Console.ReadLine());
-
-//Console.Write("Input how many provinces you have: ");
-//result += province * Convert.ToInt32(Console.ReadLine());
-
-// Beginner version of this code
 
 Console.Write("Input how many estates you have: ");
 input = Convert.ToInt32(Console.ReadLine());
-result += estate * input;
+result += (estate * input);
 
 Console.Write("Input how many duchies you have: ");
 input = Convert.ToInt32(Console.ReadLine());
-result += duchy * input;
+result += (duchy * input);
 
 Console.Write("Input how many provinces you have: ");
 input = Convert.ToInt32(Console.ReadLine());
-result += province * input;
+result += (province * input);
 
 Console.WriteLine("You gathered " + result + " points.");

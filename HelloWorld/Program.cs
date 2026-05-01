@@ -1,8 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using System;
 
-int myBirthday = 1986;
+char aLetter = '\u0164';
 
-Console.WriteLine($"{4f/9:P3}");
-
-
+Console.WriteLine(aLetter);

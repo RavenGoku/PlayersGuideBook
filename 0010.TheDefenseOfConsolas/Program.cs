@@ -63,6 +63,8 @@ Console.ForegroundColor = ConsoleColor.Black;
 Console.WriteLine($"({++row},{--column})");
 Console.Beep(500, 700);
 
+
+
 Console.BackgroundColor = ConsoleColor.Black;
 Console.ForegroundColor = ConsoleColor.White;
 

@@ -29,30 +29,6 @@ for(int i = 0; i < array.Length; i++)
 }
 Console.WriteLine();
 
-}else if(x_value < 0)
-{
-    if (y_value > 0)
-        response = "Enemy is to the northwest!";
-    else if (y_value < 0)
-        response = "Enemy is to the southwest!";
-    else
-        response = "Enemy is to the west!";
-}else if (x_value > 0)
-{
-    if (y_value > 0)
-        response = "Enemy is to the northeast!";
-    else if (y_value < 0)
-        response = "Enemy is to the southeast!";
-    else
-        response = "Enemy is to the east!";
-}else // x == 0
-{
-    if (y_value > 0)
-        response = "Enemy is to the north!";
-    else if (y_value < 0)
-        response = "Enemy is to the south!";
-}
-
 Console.Write("Array: ");
 foreach(int numbers in array)
 {

@@ -25,18 +25,17 @@ text input against specific strings to determine which enumeration value represe
 Hint: You don’t need to convert the enumeration value back to a string. Simply displaying an
 enumeration value with Write or WriteLine will display the name of the enumeration value.) */
 
+Console.Title = "Simula's Soup";
+var dish = (Recipe: Recipe.Stew, Ingredients: Ingredients.Carrots, Seasoning: Seasoning.Spicy);
 
+DisplayMenu();
 
-//touple creation for soup composition
-(Enum type, Enum ingridient, Enum seasoning)
-
-
-
-
-
-
-
-
+Console.WriteLine("User, what dish would you like to get?");
+while (true) { 
+    Console.Write("Recipe: ");
+    int choose = Convert.ToInt32(Console.ReadKey());
+    if 
+}
 
 
 
@@ -46,6 +45,26 @@ enumeration value with Write or WriteLine will display the name of the enumerati
 
 
 //==========================================================================================
-enum type { soup, stew, gumbo };
-enum main_ingredient { mushrooms, chicken, carrots, potatoes };
-enum seassoning { spicy, salty, sweet };
+void DisplayMenu()
+{
+    Console.Write(
+        "===============  Menu ==================\n" +
+        "Recipe: ==============\n" +
+        "1.Soup\n" +
+        "2.Stew\n" +
+        "3.Gumbo\n" +
+        "Ingredient: ========\n" +
+        "1.Mushrooms\n" +
+        "2.Chicken\n" +
+        "3.Carrots\n" +
+        "4.Potatoes\n" +
+        "Seasoning: ==========\n" +
+        "1.Spicy\n" +
+        "2.Sweet\n" +
+        "3.Salty\n" +
+        "=======================================");
+}
+
+enum Recipe {Soup = 1,Gumbo,Stew};
+enum Ingredients{Mushrooms = 1,Chicken,Carrots,Potatoes};
+enum Seasoning{Spicy = 1, Salty, Sweet};

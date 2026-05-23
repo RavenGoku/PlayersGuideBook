@@ -1,43 +1,13 @@
-﻿Console.Title = "Tuples";
+﻿
 
 
-(double X, double Y) point = (2.0, 4.0);
 
-
-var world = (Row: point.X, Column: point.Y, TileType.Grass);
-
-double x = 0;
-double y = 0;
-TileType tt;
-
-
-(x, y, tt) = world;
-
-
-Console.WriteLine($"x = {x}, y = {y}, tile = {tt}");
+Console.Title = "Tuples";
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+(double x, double y) points = (2.0, 4.0);
 
 
 
@@ -58,8 +28,7 @@ void Display_Scores((string name, int level, int points) score)
 
 //================================ End Methods ===============================================
 //================================ Classes     ===============================================
-enum TileType { Grass, Water, Rock };
-
+ enum TileType { Grass,Water,Rock,Fire}
 
 
 

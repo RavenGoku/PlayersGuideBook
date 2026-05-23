@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.6.11819.183 stable
+VisualStudioVersion = 18.6.11819.183
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorld", "HelloWorld\HelloWorld.csproj", "{BD3D5941-F70F-40F7-BB8B-C151F6128D90}"
 EndProject
@@ -75,11 +75,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PART1-Basics", "PART1-Basic
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PART2-ObjectOrientedProgramming", "PART2-ObjectOrientedProgramming", "{40B322DC-92A0-4B08-B218-50189D4C9B38}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Level16", "Level16", "{A371A230-7E15-407F-8C9A-FE6F2A6FB624}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Level16-Enumeration", "Level16-Enumeration", "{A371A230-7E15-407F-8C9A-FE6F2A6FB624}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "0023.SimulasTest", "0023.SimulasTest\0023.SimulasTest.csproj", "{0544D975-9A9A-4209-AF14-3231079417E5}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Level17", "Level17", "{AF44F370-AB88-4F3C-93BE-47E8955B1C3D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Level17 - Tuples", "Level17 - Tuples", "{AF44F370-AB88-4F3C-93BE-47E8955B1C3D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "024.Simula'sSoup", "024.Simula'sSoup\024.Simula'sSoup.csproj", "{3D95C5F9-4564-49EA-8BC4-63CD70D05792}"
 EndProject

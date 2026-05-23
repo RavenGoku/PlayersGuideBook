@@ -20,13 +20,42 @@ Objectives:
 Console.Title = "VIN FLETCHER'S ARROW";
 
 Display_Menu();
-
 Arrow first = CreateArrow();
+
+
 Console.ForegroundColor = ConsoleColor.Green;
 Console.WriteLine($"That arrow costs {first.GetCost()} gold.");
 Console.ResetColor();
 
+//================================== Methods and Other ==============================================
+void Display_Menu()
+{
+    Console.WriteLine(@"
+==================================================
+            VIN FLETCHER'S ARROWS            
+==================================================
+""A tiny fragment of my soul goes into each arrow.
+ I care not for the money; I just need to recoup 
+ my costs and get food on the table.""
 
+------------- CUSTOM ARROW BUILDER ---------------
+
+--- Choose your Arrowhead ---
+  1. Steel (10 gold)
+  2. Wood (3 gold)
+  3. Obsidian (5 gold)
+
+--- Choose your Fletching ---
+  1. Plastic (10 gold)
+  2. Turkey Feathers (5 gold)
+  3. Goose Feathers (3 gold)
+
+--- Choose your Shaft Length ---
+  Length must be between 60cm and 100cm.
+  (Cost: 0.05 gold per cm)
+==================================================");
+}
+//------------------------------------------------------------------------------------------------
 Arrow CreateArrow()
 {
     
@@ -131,47 +160,7 @@ Arrow CreateArrow()
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-//================================================================================================
-void Display_Menu()
-{
-    Console.WriteLine(@"
-==================================================
-            VIN FLETCHER'S ARROWS            
-==================================================
-""A tiny fragment of my soul goes into each arrow.
- I care not for the money; I just need to recoup 
- my costs and get food on the table.""
-
-------------- CUSTOM ARROW BUILDER ---------------
-
---- Choose your Arrowhead ---
-  1. Steel (10 gold)
-  2. Wood (3 gold)
-  3. Obsidian (5 gold)
-
---- Choose your Fletching ---
-  1. Plastic (10 gold)
-  2. Turkey Feathers (5 gold)
-  3. Goose Feathers (3 gold)
-
---- Choose your Shaft Length ---
-  Length must be between 60cm and 100cm.
-  (Cost: 0.05 gold per cm)
-==================================================");
-}
 //------------------------------------------------------------------------------------------------
-
 class Arrow
 {
     Arrowhead _arrowhead;

@@ -50,7 +50,7 @@ void ChestStates()
     do
     {
         Console.Write($"The chest is {simulas_chest}.What do you want to do? ");
-        action = Console.ReadLine().ToLower();
+        action = Console.ReadLine()!.ToLower();
         switch (simulas_chest)
         {
             case state_of_chest.Locked:

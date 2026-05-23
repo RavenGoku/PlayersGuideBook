@@ -1,36 +1,45 @@
-﻿
+﻿Console.Title = "Classes";
+
+Score a = new Score("R2-D2",12400,15);
+Score b = new Score("C3-P0", 8543, 8);
+Score first = new();
+Score second = new("Ben",160798,20);
 
 
 
-Console.Title = "Tuples";
+if (a.EarnedStar())
+    Console.WriteLine($"{a._name} earned a star!");
+
+if (b.EarnedStar())
+    Console.WriteLine($"{b._name} earned a star!");
+
+if (second.EarnedStar())
+    Console.WriteLine($"{second._name} earned a star!");
 
 
 
 
-(double x, double y) points = (2.0, 4.0);
 
 
 
-//=================================== Methods ================================================
-void Display_Scores((string name, int level, int points) score)
+//==========================End Main==================================================                          
+class Score
 {
-    Console.WriteLine($"Name:{score.name}, Level:{score.level}, Score:{score.points}");
-}
-(string Name, int Point, int Level)[] CreateHighScores()
-{
-    return new (string, int, int)[3]
+    public string _name;
+    public int _points;
+    public int _level;
+
+    //Constructor parameterless
+    public Score(): this("Unknown",0,1)
+    {}
+    //Constructor with parameters
+    public Score(string name, int points, int level) 
     {
-        ("R2-D2", 12420, 15),
-        ("C-3PO", 8435, 9),
-        ("GONK", -1, 1),
-    };
+        _name = name;
+        _points = points;
+        _level = level;
+    }
+
+    public bool EarnedStar() => (_points / _level) > 1000;
+
 }
-
-//================================ End Methods ===============================================
-//================================ Classes     ===============================================
- enum TileType { Grass,Water,Rock,Fire}
-
-
-
-
-

@@ -63,16 +63,16 @@ void DisplayMenu()
 Arrow CreateArrow()
 {
 
-    Arrowhead chosenArrowhead = SetArrowhead();
-    Fletching chosenFletching = SetFletching();
-    int chosenArrowLength = SetArrowLength();
+    Arrowhead chosenArrowhead = GetArrowhead();
+    Fletching chosenFletching = GetFletching();
+    int chosenArrowLength = GetArrowLength();
 
     return new Arrow(chosenArrowhead, chosenFletching, chosenArrowLength);
 
 
     //==================== Local Functions/Methods ============================
     //-------------------------------------------------------------------------
-    Arrowhead SetArrowhead()
+    Arrowhead GetArrowhead()
     {
         Arrowhead arrowhead;
         int choice;
@@ -105,7 +105,7 @@ Arrow CreateArrow()
         return arrowhead;
     }
     //-------------------------------------------------------------------------
-    Fletching SetFletching()
+    Fletching GetFletching()
     {
         Fletching fletching;
         int choice;

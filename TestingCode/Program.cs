@@ -1,45 +1,40 @@
-﻿Console.Title = "Classes";
+﻿using System.Drawing;
 
-Score a = new Score("R2-D2",12400,15);
-Score b = new Score("C3-P0", 8543, 8);
-Score first = new();
-Score second = new("Ben",160798,20);
+Console.Title = "Classes";
 
+Rectangle rectangle = new Rectangle(2, 3);
 
+Console.WriteLine($"Rectangle area = {rectangle.GetArea()} cm.");
 
-if (a.EarnedStar())
-    Console.WriteLine($"{a._name} earned a star!");
+rectangle.SetWidth( 7 );
+rectangle.SetHeight( 4 );
 
-if (b.EarnedStar())
-    Console.WriteLine($"{b._name} earned a star!");
-
-if (second.EarnedStar())
-    Console.WriteLine($"{second._name} earned a star!");
+Console.WriteLine($"Rectangle area after change = {rectangle.GetArea()} cm.");
 
 
 
-
-
-
-
-//==========================End Main==================================================                          
-class Score
+public class Rectangle
 {
-    public string _name;
-    public int _points;
-    public int _level;
+    private float _height;
+    private float _width;
 
-    //Constructor parameterless
-    public Score(): this("Unknown",0,1)
-    {}
-    //Constructor with parameters
-    public Score(string name, int points, int level) 
+    public Rectangle (float width, float height)
     {
-        _name = name;
-        _points = points;
-        _level = level;
+        _height = height;
+        _width = width;
+        
     }
 
-    public bool EarnedStar() => (_points / _level) > 1000;
+    // Method expression (inline)
+    public float GetHeight() => _height;
+    //  same as normal method:
+    //  public float GetHeight() 
+    //  {
+    //        return _height;
+    //  }
+    public float GetWidth() => _width;
+    public float GetArea() => (_height * _width);
 
+    public void SetHeight(float value ) => _height = value;
+    public void SetWidth(float value) => _width = value;
 }

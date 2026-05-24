@@ -1,5 +1,5 @@
-﻿/*
-==================  Challenge              Vin Fletcher’s Arrows                      100 XP ====================
+﻿
+/*==================  Challenge              Vin Fletcher’s Arrows                      100 XP ====================
     Vin Fletcher is a skilled arrow maker. He asks for your help building a new class to represent arrows and 
     determine how much he should sell them for.“A tiny fragment of my soul goes into each arrow; 
     I care not for the money; I just need to be able to recoup my costs and get food on the table,” he says
@@ -19,7 +19,7 @@ Objectives:
 
 Console.Title = "VIN FLETCHER'S ARROW";
 
-Display_Menu();
+DisplayMenu();
 Arrow first = CreateArrow();
 
 
@@ -27,8 +27,33 @@ Console.ForegroundColor = ConsoleColor.Green;
 Console.WriteLine($"That arrow costs {first.GetCost()} gold.");
 Console.ResetColor();
 
+first = new(Arrow.Arrowhead.Steel, Arrow.Fletching.GooseFeathers, 75);
+
+Console.ForegroundColor = ConsoleColor.Green;
+Console.WriteLine($"That new arrow costs {first.GetCost()} gold.");
+Console.ResetColor();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //================================== Methods and Other ==============================================
-void Display_Menu()
+void DisplayMenu()
 {
     Console.WriteLine(@"
 ==================================================
@@ -59,22 +84,22 @@ void Display_Menu()
 Arrow CreateArrow()
 {
     
-    Arrow.Arrowhead chosen_arrowhead =  Get_Arrowhead();
-    Arrow.Fletching chosen_fletching = Get_Fletching();
-    int chosen_arrow_length = Get_Arrow_Length();
+    Arrow.Arrowhead chosenArrowhead =  GetArrowhead();
+    Arrow.Fletching chosenFletching = GetFletching();
+    int chosenArrowLength = GetArrowLength();
 
-    return new Arrow(chosen_arrowhead, chosen_fletching, chosen_arrow_length);
+    return new Arrow(chosenArrowhead, chosenFletching, chosenArrowLength);
     
     
     //==================== Local Functions/Methods ============================
     //-------------------------------------------------------------------------
-    Arrow.Arrowhead Get_Arrowhead()
+    Arrow.Arrowhead GetArrowhead()
     {
         Arrow.Arrowhead arrowhead;
         int choice;
         while (true)
         {
-            Console.WriteLine("Choose your Arrowhead: ");
+            Console.Write("Choose your Arrowhead: ");
             choice = Convert.ToInt32(Console.ReadLine());
             arrowhead = choice switch
             {
@@ -88,7 +113,7 @@ Arrow CreateArrow()
             if(arrowhead != Arrow.Arrowhead.Unknown)
             {
                 Console.Clear();
-                Display_Menu();
+                DisplayMenu();
                 break;
             }
             else
@@ -101,19 +126,19 @@ Arrow CreateArrow()
         return arrowhead;
     }
     //-------------------------------------------------------------------------
-    Arrow.Fletching Get_Fletching()
+    Arrow.Fletching GetFletching()
     {
         Arrow.Fletching fletching;
         int choice;
         while (true)
         {
-            Console.WriteLine("Choose your Fletching: ");
+            Console.Write("Choose your Fletching: ");
             choice = Convert.ToInt32(Console.ReadLine());
             fletching = choice switch
             {
                 1 => Arrow.Fletching.Plastic,
-                2 => Arrow.Fletching.Turkey_Feathers,
-                3 => Arrow.Fletching.Goose_Feathers,
+                2 => Arrow.Fletching.TurkeyFeathers,
+                3 => Arrow.Fletching.GooseFeathers,
                 _ => Arrow.Fletching.Unknown,
 
             };
@@ -121,7 +146,7 @@ Arrow CreateArrow()
             if (fletching != Arrow.Fletching.Unknown)
             {
                 Console.Clear();
-                Display_Menu();
+                DisplayMenu();
                 break;
             }
             else
@@ -134,19 +159,19 @@ Arrow CreateArrow()
         return fletching;
     }
     //-------------------------------------------------------------------------
-    int Get_Arrow_Length()
+    int GetArrowLength()
     {
-        int arrow_length;
+        int arrowLength;
         int choice;
         while (true)
         {
-            Console.WriteLine("Choose your length: ");
+            Console.Write("Choose your length: ");
             choice = Convert.ToInt32(Console.ReadLine());
             if(choice <= 100 && choice >= 60)
             {
-                arrow_length = choice;
+                arrowLength = choice;
                 Console.Clear();
-                Display_Menu();
+                DisplayMenu();
                 break;
             }
             else
@@ -155,7 +180,7 @@ Arrow CreateArrow()
             }
             
         }
-            return arrow_length;
+            return arrowLength;
 
     }
 
@@ -165,7 +190,7 @@ class Arrow
 {
     Arrowhead _arrowhead;
     Fletching _fletching;
-    public int _shaft_length;
+    public int _shaftLength;
 
 
     //Constructors
@@ -177,10 +202,10 @@ class Arrow
         _fletching = fletching;
         if ( length <= 100 && length >= 60)
         {
-            _shaft_length = length;
+            _shaftLength = length;
         }else
         {
-            _shaft_length = 60;
+            _shaftLength = 60;
         }
     }
     //--------------------------------------------------
@@ -198,12 +223,12 @@ class Arrow
         cost += _fletching switch
         {
             Fletching.Plastic => 10f,
-            Fletching.Turkey_Feathers => 5f,
-            Fletching.Goose_Feathers => 3f,
+            Fletching.TurkeyFeathers => 5f,
+            Fletching.GooseFeathers => 3f,
             _ => 0f
         };
 
-        cost += (0.05f * _shaft_length);
+        cost += (0.05f * _shaftLength);
 
 
 
@@ -211,7 +236,7 @@ class Arrow
     }
     
     public enum Arrowhead {Unknown, Steel, Wood, Obsidian };
-    public enum Fletching {Unknown, Plastic, Turkey_Feathers, Goose_Feathers };
+    public enum Fletching {Unknown, Plastic, TurkeyFeathers, GooseFeathers };
 }
 
 

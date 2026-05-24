@@ -22,22 +22,11 @@ Console.ForegroundColor = ConsoleColor.Green;
 Console.WriteLine($"That arrow costs {first.GetCost()} gold.");
 Console.ResetColor();
 
+Arrow second = new Arrow(Arrowhead.Obsidian,Fletching.Plastic, 4000);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Console.ForegroundColor = ConsoleColor.Green;
+Console.WriteLine($"That second arrow costs {second.GetCost()} gold.");
+Console.ResetColor();
 
 
 
@@ -74,18 +63,18 @@ void DisplayMenu()
 Arrow CreateArrow()
 {
 
-    Arrow.Arrowhead chosenArrowhead = GetArrowhead();
-    Arrow.Fletching chosenFletching = GetFletching();
-    int chosenArrowLength = GetArrowLength();
+    Arrowhead chosenArrowhead = SetArrowhead();
+    Fletching chosenFletching = SetFletching();
+    int chosenArrowLength = SetArrowLength();
 
     return new Arrow(chosenArrowhead, chosenFletching, chosenArrowLength);
 
 
     //==================== Local Functions/Methods ============================
     //-------------------------------------------------------------------------
-    Arrow.Arrowhead GetArrowhead()
+    Arrowhead SetArrowhead()
     {
-        Arrow.Arrowhead arrowhead;
+        Arrowhead arrowhead;
         int choice;
         while (true)
         {
@@ -93,14 +82,14 @@ Arrow CreateArrow()
             choice = Convert.ToInt32(Console.ReadLine());
             arrowhead = choice switch
             {
-                1 => Arrow.Arrowhead.Steel,
-                2 => Arrow.Arrowhead.Wood,
-                3 => Arrow.Arrowhead.Obsidian,
-                _ => Arrow.Arrowhead.Unknown,
+                1 => Arrowhead.Steel,
+                2 => Arrowhead.Wood,
+                3 => Arrowhead.Obsidian,
+                _ => Arrowhead.Unknown,
 
             };
 
-            if (arrowhead != Arrow.Arrowhead.Unknown)
+            if (arrowhead != Arrowhead.Unknown)
             {
                 Console.Clear();
                 DisplayMenu();
@@ -116,9 +105,9 @@ Arrow CreateArrow()
         return arrowhead;
     }
     //-------------------------------------------------------------------------
-    Arrow.Fletching GetFletching()
+    Fletching SetFletching()
     {
-        Arrow.Fletching fletching;
+        Fletching fletching;
         int choice;
         while (true)
         {
@@ -126,14 +115,14 @@ Arrow CreateArrow()
             choice = Convert.ToInt32(Console.ReadLine());
             fletching = choice switch
             {
-                1 => Arrow.Fletching.Plastic,
-                2 => Arrow.Fletching.TurkeyFeathers,
-                3 => Arrow.Fletching.GooseFeathers,
-                _ => Arrow.Fletching.Unknown,
+                1 => Fletching.Plastic,
+                2 => Fletching.TurkeyFeathers,
+                3 => Fletching.GooseFeathers,
+                _ => Fletching.Unknown,
 
             };
 
-            if (fletching != Arrow.Fletching.Unknown)
+            if (fletching != Fletching.Unknown)
             {
                 Console.Clear();
                 DisplayMenu();
@@ -149,7 +138,7 @@ Arrow CreateArrow()
         return fletching;
     }
     //-------------------------------------------------------------------------
-    int GetArrowLength()
+    int SetArrowLength()
     {
         int arrowLength;
         int choice;
@@ -175,16 +164,18 @@ Arrow CreateArrow()
     }
 
 }
-//------------------------------------------------------------------------------------------------
+//---------------------------------Arrow Class File with essentials-----------------
+public enum Arrowhead { Unknown, Steel, Wood, Obsidian };
+public enum Fletching { Unknown, Plastic, TurkeyFeathers, GooseFeathers };
 class Arrow
 {
-    Arrowhead _arrowhead;
-    Fletching _fletching;
+    private Arrowhead _arrowhead;
+    private Fletching _fletching;
     private int _shaftLength;
 
 
     //Constructors
-    public Arrow() : this(0, 0, 0)
+    public Arrow() : this(Arrowhead.Steel, Fletching.Plastic, 60)
     { }
     public Arrow(Arrowhead arrowhead, Fletching fletching, int length)
     {
@@ -228,10 +219,5 @@ class Arrow
 
         return cost;
     }
-
-
-    public enum Arrowhead { Unknown, Steel, Wood, Obsidian };
-    public enum Fletching { Unknown, Plastic, TurkeyFeathers, GooseFeathers };
 }
-
 

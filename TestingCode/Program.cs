@@ -1,40 +1,47 @@
 ﻿using System.Drawing;
+using System.Reflection.Metadata.Ecma335;
+using System.Windows.Markup;
 
 Console.Title = "Classes";
 
-Rectangle rectangle = new Rectangle(2, 3);
+Rectangle rectangle = new Rectangle(5, 3);
 
-Console.WriteLine($"Rectangle area = {rectangle.GetArea()} cm.");
+Console.WriteLine($"A {rectangle.Width} x {rectangle.Height} rectangle has an are of {rectangle.Area}. ");
 
-rectangle.SetWidth( 7 );
-rectangle.SetHeight( 4 );
+Circle circle = new Circle() { Radius  = 5 , X = 4, Y = 2};
 
-Console.WriteLine($"Rectangle area after change = {rectangle.GetArea()} cm.");
 
+
+
+public class Circle
+{
+    public float X { get; init; } = 0;
+    public float Y { get; init; } = 0;
+    public float Radius { get; init; } = 0;
+}
+public class Player
+{
+    public string Name { get; init; } = "Kakarotto";
+    //ctor
+    public Player()
+    {
+        Name = Name;
+    }
+}
 
 
 public class Rectangle
 {
-    private float _height;
-    private float _width;
-
+    public float Width { get; set; }
+    public float Height { get; set;  }
+    //property that has get-only, we can simplify it to: 
+    public float Area => (Height * Width);
+    
+    //ctor
     public Rectangle (float width, float height)
     {
-        _height = height;
-        _width = width;
-        
+        Height = height;
+        Width = width;
     }
 
-    // Method expression (inline)
-    public float GetHeight() => _height;
-    //  same as normal method:
-    //  public float GetHeight() 
-    //  {
-    //        return _height;
-    //  }
-    public float GetWidth() => _width;
-    public float GetArea() => (_height * _width);
-
-    public void SetHeight(float value ) => _height = value;
-    public void SetWidth(float value) => _width = value;
 }

@@ -1,45 +1,34 @@
-﻿
-/*==================  Challenge              Vin Trouble                      50 XP ====================
-    “Master Programmer!” Vin Fletcher shouts at you as he races to catch up to you. “I have a problem. I
-created an arrow for a young man who took it and changed its length to be half as long as I had designed.
-It no longer fit in his bow correctly and misfired. It sliced his hand pretty bad. He’ll survive, but is there
-any way we can make sure somebody doesn’t change an arrow’s length when they walk away from my
-shop? I don’t want to be the cause of such self-inflicted pain.”With your knowledge of information hiding,
-you know you can help.
+﻿/*==================  Challenge             The Properties of Arrows                      100 XP ====================
+    Vin Fletcher once again has run to catch up to you for help with his arrows. “My apologies, Programmer!
+This will be the last time I bother you. My cousin, Flynn Vetcher, is the only other arrow maker in the
+area. He doesn’t care for his craft and makes wildly dangerous and overpriced arrows. But people keep
+buying them because they think my GetLength() methods are harder to work with than his public
+_length fields.I don’t want to give up the protections we just gave these arrows, but I remembered you
+saying something about properties. Maybe you could use those to make my arrows easier to work with?”
 
 Objectives:
-• Modify your Arrow class to have private instead of public fields.
-• Add in getter methods for each of the fields that you have. 
+• Modify your Arrow class to use properties instead of GetX and SetX methods.
+• Ensure the whole program can still run, and Vin can keep creating arrows with it.
 */
 
-Console.Title = "VIN Trouble";
+Console.Title = "The Properties of Arrows";
 
 DisplayMenu();
 Arrow first = CreateArrow();
 
-
 Console.ForegroundColor = ConsoleColor.Green;
 Console.WriteLine($"That arrow costs {first.GetCost()} gold.");
 Console.ResetColor();
-
-Arrow second = new Arrow(Arrowhead.Obsidian,Fletching.Plastic, 4000);
-
-Console.ForegroundColor = ConsoleColor.Green;
-Console.WriteLine($"That second arrow costs {second.GetCost()} gold.");
-Console.ResetColor();
-
-
-
 
 //================================== Methods and Other ==============================================
 void DisplayMenu()
 {
     Console.WriteLine(@"
 ==================================================
-            VIN FLETCHER'S ARROWS            
+            VIN FLETCHER'S ARROWS
 ==================================================
 ""A tiny fragment of my soul goes into each arrow.
- I care not for the money; I just need to recoup 
+ I care not for the money; I just need to recoup
  my costs and get food on the table.""
 
 ------------- CUSTOM ARROW BUILDER ---------------
@@ -62,13 +51,11 @@ void DisplayMenu()
 //------------------------------------------------------------------------------------------------
 Arrow CreateArrow()
 {
-
     Arrowhead chosenArrowhead = GetArrowhead();
     Fletching chosenFletching = GetFletching();
     int chosenArrowLength = GetArrowLength();
 
     return new Arrow(chosenArrowhead, chosenFletching, chosenArrowLength);
-
 
     //==================== Local Functions/Methods ============================
     //-------------------------------------------------------------------------
@@ -86,7 +73,6 @@ Arrow CreateArrow()
                 2 => Arrowhead.Wood,
                 3 => Arrowhead.Obsidian,
                 _ => Arrowhead.Unknown,
-
             };
 
             if (arrowhead != Arrowhead.Unknown)
@@ -99,7 +85,6 @@ Arrow CreateArrow()
             {
                 Console.WriteLine("Wrong choice, try again!\r");
             }
-
         }
 
         return arrowhead;
@@ -119,7 +104,6 @@ Arrow CreateArrow()
                 2 => Fletching.TurkeyFeathers,
                 3 => Fletching.GooseFeathers,
                 _ => Fletching.Unknown,
-
             };
 
             if (fletching != Fletching.Unknown)
@@ -132,7 +116,6 @@ Arrow CreateArrow()
             {
                 Console.WriteLine("Wrong choice, try again!\r");
             }
-
         }
 
         return fletching;
@@ -157,47 +140,48 @@ Arrow CreateArrow()
             {
                 Console.WriteLine("Out of range, try again!\r");
             }
-
         }
         return arrowLength;
-
     }
-
 }
-//---------------------------------Arrow Class File with essentials-----------------
-public enum Arrowhead { Unknown, Steel, Wood, Obsidian };
-public enum Fletching { Unknown, Plastic, TurkeyFeathers, GooseFeathers };
-class Arrow
-{
-    private Arrowhead _arrowhead;
-    private Fletching _fletching;
-    private int _shaftLength;
 
+//---------------------------------Arrow Class File with essentials-----------------
+public enum Arrowhead
+{ Unknown, Steel, Wood, Obsidian };
+
+public enum Fletching
+{ Unknown, Plastic, TurkeyFeathers, GooseFeathers };
+
+internal class Arrow
+{
+    public Arrowhead Arrowhead { get; init; }
+    public Fletching Fletching { get; init; }
+    public int ShaftLength { get; init; }
 
     //Constructors
     public Arrow() : this(Arrowhead.Steel, Fletching.Plastic, 60)
     { }
+
     public Arrow(Arrowhead arrowhead, Fletching fletching, int length)
     {
-        _arrowhead = arrowhead;
-        _fletching = fletching;
+        Arrowhead = arrowhead;
+        Fletching = fletching;
         if (length <= 100 && length >= 60)
         {
-            _shaftLength = length;
+            ShaftLength = length;
         }
         else
         {
-            _shaftLength = 60;
+            ShaftLength = 60;
         }
     }
+
     //--------------------------------------------------
-    public Arrowhead GetArrowhead() => _arrowhead;
-    public Fletching GetFletching() => _fletching;
-    public int GetLength() => _shaftLength;
+
     public float GetCost()
     {
         float cost;
-        cost = _arrowhead switch
+        cost = Arrowhead switch
         {
             Arrowhead.Steel => 10f,
             Arrowhead.Wood => 3f,
@@ -205,7 +189,7 @@ class Arrow
             _ => 0f
         };
 
-        cost += _fletching switch
+        cost += Fletching switch
         {
             Fletching.Plastic => 10f,
             Fletching.TurkeyFeathers => 5f,
@@ -213,11 +197,8 @@ class Arrow
             _ => 0f
         };
 
-        cost += (0.05f * _shaftLength);
-
-
+        cost += (0.05f * ShaftLength);
 
         return cost;
     }
 }
-

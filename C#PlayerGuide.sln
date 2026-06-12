@@ -77,7 +77,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PART2-ObjectOrientedProgram
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Level16-Enumeration", "Level16-Enumeration", "{A371A230-7E15-407F-8C9A-FE6F2A6FB624}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "0023.SimulasTest", "0023.SimulasTest\0023.SimulasTest.csproj", "{0544D975-9A9A-4209-AF14-3231079417E5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "023.SimulasTest", "0023.SimulasTest\023.SimulasTest.csproj", "{0544D975-9A9A-4209-AF14-3231079417E5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Level17 - Tuples", "Level17 - Tuples", "{AF44F370-AB88-4F3C-93BE-47E8955B1C3D}"
 EndProject
@@ -93,7 +93,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "026.VinsTrouble", "026.Vins
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Level20-Proprties", "Level20-Proprties", "{53FF4EBB-4240-4019-9EEA-0472A94912CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "027.ThePropertiesOfArrows", "027.ThePropertiesOfArrows\027.ThePropertiesOfArrows.csproj", "{3DA6F360-0320-4E33-9A89-9196CF549242}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "27.ThePropertiesOfArrows", "027.ThePropertiesOfArrows\27.ThePropertiesOfArrows.csproj", "{3DA6F360-0320-4E33-9A89-9196CF549242}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelperClasses", "HelperClasses\HelperClasses.csproj", "{1CC014B6-F9E4-44C6-A9F9-D8C3F97A1C86}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -217,6 +219,10 @@ Global
 		{3DA6F360-0320-4E33-9A89-9196CF549242}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DA6F360-0320-4E33-9A89-9196CF549242}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3DA6F360-0320-4E33-9A89-9196CF549242}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CC014B6-F9E4-44C6-A9F9-D8C3F97A1C86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CC014B6-F9E4-44C6-A9F9-D8C3F97A1C86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CC014B6-F9E4-44C6-A9F9-D8C3F97A1C86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CC014B6-F9E4-44C6-A9F9-D8C3F97A1C86}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

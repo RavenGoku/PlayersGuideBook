@@ -31,11 +31,17 @@ Console.Write("=========================== { The Four Sisters and the Duckbear }
     "\neggs every day, and the remainder is fed to their pet duckbear. All that is left is to have some skilled\r" +
     "\nProgrammer build a program to tell them how much each sister and the duckbear should get.\n");
 
-Console.WriteLine( "\nHow many eggs they collected today?: ");
-int eggsCollected = Convert.ToInt16(Console.ReadLine());
+int eggsCollected = AskForNumber("\nHow many eggs they collected today?: ");
 
 sistersEggs = eggsCollected / 4;
 duckbearEggs = eggsCollected % 4;
 
-Console.WriteLine("Four Sisters got: " + sistersEggs  + " eggs each today");
+Console.WriteLine("Four Sisters got: " + sistersEggs + " eggs each today");
 Console.WriteLine("Duckbear got: " + duckbearEggs);
+
+int AskForNumber(string text)
+{
+    Console.WriteLine(text);
+    int number = Convert.ToInt32(Console.ReadLine());
+    return number;
+}

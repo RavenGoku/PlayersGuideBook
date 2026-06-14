@@ -23,43 +23,49 @@ Objectives:
  */
 
 Console.Title = " The Prototype";
-int inputNumber=0;
-int hunterNumber=0;
+string user_1 = "Prey";
+string user_2 = "Hunter";
+int number, guess_number;
 
+//input starting number validation
+
+number = AskForNumberInRange($"{user_1}, enter a number between 0 and 100: ", 0, 100);
+
+//Starting guess game
+Console.WriteLine($"{user_2}, find your {user_1}. ");
 do
 {
-    Console.Write("User 1, enter a number between 0 and 100: ");
-    inputNumber = Convert.ToInt32(Console.ReadLine());
-    if (inputNumber < 0 || inputNumber > 100)
+    Console.Write("What is your next guess? ");
+    guess_number = Convert.ToInt32(Console.ReadLine());
+
+    if (guess_number < number)
     {
-        Console.WriteLine("User 1, You typed wrong number, try again!");
-        Console.WriteLine();
-        continue;
+        Console.WriteLine($"{guess_number} is too low");
     }
-  
-        Console.Clear();
-        Console.Write("Hunter, try to guess the number User 1 type in: ");
-    
-    do
+    else if (guess_number > number)
     {
-        hunterNumber = Convert.ToInt32(Console.ReadLine());
-        if (hunterNumber > inputNumber)
-        {
-            Console.WriteLine($"{hunterNumber} is too high.");
-            Console.Write("What is your next guess? ");
-            continue;
-        }else if (hunterNumber < inputNumber)
-        {
-            Console.WriteLine($"{hunterNumber} is too low.");
-            Console.Write("What is your next guess? ");
-            continue;
-        }
-        else
-        {
-            Console.WriteLine($"Congratulation! You guessed the number!");
-        }
+        Console.WriteLine($"{guess_number} is too high.");
+    }
+    else
+    {
+        Console.WriteLine("You guessed the number!");
+    }
+} while (guess_number != number);
 
-    } while (inputNumber != hunterNumber);
 
-    break;
-} while(true);
+
+//--------------------------------- Functions -------------------------------------------------
+int AskForNumberInRange(string text, int min, int max)
+{
+    while (true)
+    {
+        Console.WriteLine(text);
+        int number = Convert.ToInt32(Console.ReadLine());
+        if (number >= min && number <= max)
+        {
+            return number;
+        }
+        Console.WriteLine("Number is out of range, please try again!\n");
+    }
+}
+

@@ -1,10 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-
-/*
-=========================== { Hunting the Manticore 250 XP } ============================
-
-The Uncoded One’s airship, the Manticore, has begun an all-out attack on the city of Consolas. It must be
+﻿/*The Uncoded One’s airship, the Manticore, has begun an all-out attack on the city of Consolas. It must be
 destroyed, or the city will fall. Only by combining Mylara’s prototype, Skorin’s cannon, and your
 programming skills will you have a chance to win this fight. You must build a program that allows one
 user—the pilot of the Manticore—to enter the airship’s range from the city and a second user—the city’s
@@ -23,231 +17,196 @@ Manticore is destroyed after taking 10 points of damage.
 However, if the Manticore survives a turn, it will deal a guaranteed 1 point of damage to the city of
 Consolas. The city can only take 15 points of damage before being annihilated.
 Before a round begins, the user should see the current status: the current round number, the city’s health,
-and the Manticore’s health.
+and the Manticore’s health. */
 
-A sample run of the program is shown below. The first player gets a chance to place the Manticore:
-
-Player 1, how far away from the city do you want to station the Manticore? 32
-
-At this point, the display is cleared, and the second player gets their chance:
-Player 2, it is your turn.
------------------------------------------------------------
-STATUS: Round: 1 City: 15/15 Manticore: 10/10
-The cannon is expected to deal 1 damage this round.
-Enter desired cannon range: 50
-That round OVERSHOT the target.
------------------------------------------------------------
-STATUS: Round: 2 City: 14/15 Manticore: 10/10
-The cannon is expected to deal 1 damage this round.
-Enter desired cannon range: 25
-That round FELL SHORT of the target.
------------------------------------------------------------
-STATUS: Round: 3 City: 13/15 Manticore: 10/10
-The cannon is expected to deal 3 damage this round.
-Enter desired cannon range: 32
-That round was a DIRECT HIT!
------------------------------------------------------------
-STATUS: Round: 4 City: 12/15 Manticore: 7/10
-The cannon is expected to deal 1 damage this round.
-Enter desired cannon range: 32
-That round was a DIRECT HIT!
------------------------------------------------------------
-STATUS: Round: 5 City: 11/15 Manticore: 6/10
-The cannon is expected to deal 3 damage this round.
-Enter desired cannon range: 32
-That round was a DIRECT HIT!
------------------------------------------------------------
-STATUS: Round: 6 City: 10/15 Manticore: 3/10
-The cannon is expected to deal 3 damage this round.
-Enter desired cannon range: 32
-That round was a DIRECT HIT!
-The Manticore has been destroyed! The city of Consolas has been saved!
-
-
-Objectives:
-    • Establish the game’s starting state: the Manticore begins with 10 health points and the city with 15.
-    The game starts at round 1.
-
-    • Ask the first player to choose the Manticore’s distance from the city (0 to 100). Clear the screen
-    afterward.
-
-    • Run the game in a loop until either the Manticore’s or city’s health reaches 0.
-
-    • Before the second player’s turn, display the round number, the city’s health, and the Manticore’s
-    health.
-
-    • Compute how much damage the cannon will deal this round: 10 points if the round number is a
-    multiple of both 3 and 5, 3 if it is a multiple of 3 or 5 (but not both), and 1 otherwise. Display this to
-    the player.
-
-    • Get a target range from the second player, and resolve its effect. Tell the user if they overshot (too
-    far), fell short, or hit the Manticore. If it was a hit, reduce the Manticore’s health by the expected
-    amount.
-
-    • If the Manticore is still alive, reduce the city’s health by 1.
-    • Advance to the next round.
-    • When the Manticore or the city’s health reaches 0, end the game and display the outcome.
-    • Use different colors for different types of messages.
-    • Note: This is the largest program you have made so far. Expect it to take some time!
-    • Note: Use methods to focus on solving one problem at a time.
-    • Note: This version requires two players, but in the future, we will modify it to allow the computer
-        to randomly place the Manticore so that it can be a single-player game.
- */
-
-//=================== Functions ==============================
-
-using System.Text;
-
-/// <summary>
-/// Ask user for a number, then wait for user's number input;
-/// </summary>
-int AskForNumber(string text)
+//============================ Functions ======================================================================
+void Welcome_Display()
 {
-    // Display the provided prompt message to the user
-    Console.Write(text);
+    Console.WriteLine(@"The skies over Consolas have turned the color of bruised iron.
 
-    // Read user input from the console and convert it to an integer
+        From the digital abyss, the Uncoded One has sent his ultimate weapon: the Manticore.
+    This massive, shadow-draped airship now hovers on the horizon, its weapons
+    humming with a virus meant to erase the city entirely. If it breaches the perimeter,
+    Consolas will fall.
+    Your only hope lies in an impossible alliance. By combining Mylara’s advanced tech
+    prototype, Skorin’s devastating defense cannon.
+
+    But first, you must find the target. The Manticore has masked its position in the fog,
+    and the city's shields are already bleeding power under its relentless barrage.
+    Boot up the system, calibrate the cannon, and find that airship before Consolas is
+    wiped from the map." + "\n\n");
+}
+//******************************************************************************************
+
+int ask_for_number(string text)
+{
+    Console.Write(text);
     int number = Convert.ToInt32(Console.ReadLine());
 
-    // Return the entered integer value
     return number;
-};
+}
 
-//-------------------------------------------------------------
-
-int AskForNumberRange(string text, int min, int max)
+int ask_for_number_range(string text, int min, int max)
 {
-    // Variable to store the entered number
     int number = 0;
-
-    // Keep asking until the user enters a valid number within the range
     while (true)
     {
-        // Call AskForNumber to get user input
-        number = AskForNumber(text);
-
-        // If the number is less than the allowed minimum, show an error message
-        if (number < min)
-            Console.WriteLine("Is not within the range, try again!");
-
-        // If the number is greater than the allowed maximum, show an error message
-        else if (number > max)
-            Console.WriteLine("Is not within the range, try again!");
-
-        // If the number is valid, break out of the loop
+        number = ask_for_number(text);
+        if (number < min || number > max)
+        {
+            Console.WriteLine("Number is out of range, please try again.\n");
+        }
         else
             break;
     }
-
-    // Return the valid number
     return number;
-};
 
-//-------------------------------------------------------------
-/// <summary>
-/// Cannon hit point calculation, calculates if cannon strength is 10,3 or 1, depend of what round.
-/// </summary>
-int CannonHitPoint(int gRound)
-{
-        // If the Game Round is divisible by both 3 and 5 (i.e., by 15), 
-        // return 10 points (a powerful combined blast).
-        if (gRound % 3 == 0 && gRound % 5 == 0)
-            return 10;
-
-        // If the Game Round is divisible by either 3 or 5, 
-        // return 3 points (a weaker single blast).
-        else if (gRound % 3 == 0 || gRound % 5 == 0)
-            return 3;
-
-        // If the Game Round is divisible by neither 3 nor 5, 
-        // return 1 point (a normal shot).
-        else
-            return 1;
-};
-
-//-------------------------------------------------------------
-void DisplayStatus(int round,int cityMax,int cityHealth,int mantiMax, int mantiHealth)
-{
-    Console.WriteLine("------------------------------------------------------------");
-    Console.WriteLine($"STATUS: Round: {round}   City: {cityMax}/{cityHealth}   Manticore: {mantiMax}/{mantiHealth}");
-    
 }
-//-------------------------------------------------------------
-int CannonResolveShot(int manticoreRange, int manticoreMaxHealth, int cannonStr)
+
+void DisplayStatus(int game_round, int city_life, int city_hp, int manticore_life, int manti_hp)
 {
-    int cannonRange = AskForNumber("Enter desired cannon range: ");
-    if (cannonRange < manticoreRange)
+    Console.WriteLine("-----------------------------------------------------");
+    Console.WriteLine($"STATUS: Round: {game_round}   City: {city_hp}/{city_life}  manticore: {manti_hp}/{manticore_life}");
+}
+int Cannon_damage_points(int game_round)
+{
+    int damage = (game_round % 3 == 0, game_round % 5 == 0) switch
     {
-        Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.WriteLine("That round FELL SHORT of the target.");
-        Console.ResetColor();
+        (true, true) => 10,
+        (true, false) => 3,
+        (false, true) => 3,
+        (false, false) => 1
+    };
 
-    }
-    else if (cannonRange > manticoreRange)
+    if (game_round % 3 == 0 && game_round % 5 == 0)
     {
+        Console.Write("The cannon is expected to deal ");
         Console.ForegroundColor = ConsoleColor.Blue;
-        Console.WriteLine("That round OVERSHOT the target.");
+        Console.Write("(10) Electric and Fire ");
         Console.ResetColor();
-
+        Console.WriteLine("damage this round.");
+    }
+    else if (game_round % 3 == 0)
+    {
+        Console.Write("The cannon is expected to deal ");
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.Write("(3) Fire ");
+        Console.ResetColor();
+        Console.WriteLine("damage this round.");
+    }
+    else if (game_round % 5 == 0)
+    {
+        Console.Write("The cannon is expected to deal ");
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.Write("(3) Electric ");
+        Console.ResetColor();
+        Console.WriteLine("damage this round.");
     }
     else
     {
-        Console.ForegroundColor = ConsoleColor.DarkMagenta;
-        Console.WriteLine("That round was a DIRECT HIT!");
+        Console.Write("The cannon is expected to deal ");
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.Write("(1) Normal ");
         Console.ResetColor();
-
-        return manticoreMaxHealth -= cannonStr;
+        Console.WriteLine("damage this round.");
     }
-    return manticoreMaxHealth;
 
+    return damage;
 }
-//-------------------------------------------------------------
-bool CheckEndGame(int city, int manticore)
+bool is_number_guessed(int manti_distance)
 {
-    if (city < 1)
-    {
-        Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine("You lost! City has been destroyed by Uncoded One's Manticore!");
-        Console.ResetColor();
-        return true;
-    }
-    else if (manticore < 1)
+    int number = ask_for_number("Enter desired cannon range:  ");
+
+    if (number < manti_distance)
     {
         Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine("Congratulation! \nFlying Ship was destroyed! City has been saved from Uncoded One's Manticore!");
+        Console.WriteLine($"That round went lower!");
+        Console.ResetColor();
+
+        return false;
+    }
+    else if (number > manti_distance)
+    {
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.WriteLine($"That round went too high!");
+        Console.ResetColor();
+        return false;
+    }
+    else
+    {
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("YOU HIT THE MANTICORE!");
         Console.ResetColor();
         return true;
-
     }
-    return false;
 }
-//=================== End Functions ==============================
-
-
-int manticoreHealth = 10;
-int manticoreMaxHealth = manticoreHealth;
-int cityHealth = 15;
-int cityMaxHealth = cityHealth;
-int gameRound = 1;
-int cannonStrength = 0;
-bool isGameEnd = false;
-
-
-
-int manticoreRange = AskForNumberRange("Player 1, choose the Manticore's distance from the city (0 to 100): ", 0, 100);
-Console.Clear();
-Console.WriteLine("Player 2, it's your turn.");
-while (isGameEnd == false)
+int Hit_Resolve(int cannon_attack, int manti_distance, int manti_hp)
 {
-    DisplayStatus(gameRound, cityMaxHealth, cityHealth, manticoreMaxHealth, manticoreHealth);
-    cityMaxHealth--;
-    
-    cannonStrength = CannonHitPoint(gameRound);
-    Console.WriteLine($"The cannon is expected to deal {cannonStrength} damage this round.");
-
-    manticoreMaxHealth = CannonResolveShot(manticoreRange, manticoreMaxHealth, cannonStrength);
-
-    isGameEnd = CheckEndGame(cityMaxHealth, manticoreMaxHealth);
-
-    gameRound++;
+    if (is_number_guessed(manti_distance))
+    {
+        manti_hp -= cannon_attack;
+    }
+    return manti_hp;
 }
+bool is_Game_End(int manticore_hp, int city_hp)
+{
+    if (manticore_hp <= 0)
+    {
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine("The Manticore has been destroyed! The city of Consolas has been saved!");
+        Console.ResetColor();
+        return true;
+    }
+    if (city_hp <= 0)
+    {
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("You Failed! The Manticore has destroyed The city of Consolas!");
+        Console.ResetColor();
+        return true;
+    }
+    else
+        return false;
+}
+
+//============================== End Functions =================================================================
+
+Console.Title = "Hunting The Manticore";
+
+int manticore_life = 10,
+    manticore_hp = manticore_life;
+
+int city_life = 15,
+    city_hp = city_life;
+
+int game_round = 1;
+bool end_game = false;
+
+string user_1 = "Player 1";
+string user_2 = "Player 2";
+
+
+
+Welcome_Display();
+int manticore_distance = ask_for_number_range($"{user_1}, how far away from the city do you want to station the Manticore? (0 to 100) ", 0, 100);
+Console.Clear();
+Welcome_Display();
+Console.WriteLine($"{user_2}, it is your turn.");
+
+while (end_game == false)
+{
+    DisplayStatus(game_round, city_life, city_hp, manticore_life, manticore_hp);
+    int cannon_attack = Cannon_damage_points(game_round);
+    manticore_hp = Hit_Resolve(cannon_attack, manticore_distance, manticore_hp); manticore_hp = Hit_Resolve(cannon_attack, manticore_distance, manticore_hp);
+    if (manticore_hp > 0)
+    {
+        --city_hp;
+    }
+    game_round++;
+
+    end_game = is_Game_End(manticore_hp, city_hp);
+}
+;
+
+
+
+

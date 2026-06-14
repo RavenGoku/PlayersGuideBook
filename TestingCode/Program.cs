@@ -1,7 +1,8 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using System.Drawing;
+using System.Reflection.Metadata.Ecma335;
+using System.Windows.Markup;
 
-Console.WriteLine(Convert.ToString( Season.Winter));
+Console.Title = "Properties";
 
 
-enum Season { Winter, Spring, Summer, Fall};
 

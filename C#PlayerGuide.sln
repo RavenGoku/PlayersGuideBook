@@ -93,7 +93,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "026.VinsTrouble", "026.Vins
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Level20-Proprties", "Level20-Proprties", "{53FF4EBB-4240-4019-9EEA-0472A94912CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "27.ThePropertiesOfArrows", "027.ThePropertiesOfArrows\27.ThePropertiesOfArrows.csproj", "{3DA6F360-0320-4E33-9A89-9196CF549242}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "027.ThePropertiesOfArrows", "027.ThePropertiesOfArrows\027.ThePropertiesOfArrows.csproj", "{3DA6F360-0320-4E33-9A89-9196CF549242}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelperClasses", "HelperClasses\HelperClasses.csproj", "{1CC014B6-F9E4-44C6-A9F9-D8C3F97A1C86}"
 EndProject

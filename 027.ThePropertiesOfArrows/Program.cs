@@ -16,6 +16,7 @@ Console.Title = "The Properties of Arrows";
 DisplayMenu();
 Arrow first = CreateArrow();
 
+
 Console.ForegroundColor = ConsoleColor.Green;
 Console.WriteLine($"That arrow costs {first.GetCost()} gold.");
 Console.ResetColor();
@@ -48,6 +49,7 @@ void DisplayMenu()
   (Cost: 0.05 gold per cm)
 ==================================================");
 }
+
 //------------------------------------------------------------------------------------------------
 Arrow CreateArrow()
 {
@@ -89,6 +91,7 @@ Arrow CreateArrow()
 
         return arrowhead;
     }
+
     //-------------------------------------------------------------------------
     Fletching GetFletching()
     {
@@ -120,6 +123,7 @@ Arrow CreateArrow()
 
         return fletching;
     }
+
     //-------------------------------------------------------------------------
     int GetArrowLength()
     {
@@ -141,26 +145,48 @@ Arrow CreateArrow()
                 Console.WriteLine("Out of range, try again!\r");
             }
         }
+
         return arrowLength;
     }
 }
 
 //---------------------------------Arrow Class File with essentials-----------------
-public enum Arrowhead
-{ Unknown, Steel, Wood, Obsidian };
+//-------------------------- Enums --------------------------
+// Enums to represent the different types of arrowheads and fletchings available for an arrow.
+internal enum Arrowhead
+{
+    Unknown,
+    Steel,
+    Wood,
+    Obsidian
+};
 
-public enum Fletching
-{ Unknown, Plastic, TurkeyFeathers, GooseFeathers };
+internal enum Fletching
+{
+    Unknown,
+    Plastic,
+    TurkeyFeathers,
+    GooseFeathers
+};
+//-------------------------- End Enums --------------------------
 
+//-------------------------- Class Arrow --------------------------
+// Class representing an arrow with properties for its arrowhead, fletching, and shaft length.
+// The cost of the arrow can be calculated based on these properties.
+
+// The class provides constructors to create an arrow with default values or specified values.
+// Only at the time of creation with initializers or constructors can the properties be set,
+// ensuring that the arrow's characteristics remain consistent after creation.
 internal class Arrow
 {
-    public Arrowhead Arrowhead { get; init; }
-    public Fletching Fletching { get; init; }
-    public int ShaftLength { get; init; }
+    private Arrowhead Arrowhead { get; init; }
+    private Fletching Fletching { get; init; }
+    private int ShaftLength { get; init; }
 
     //Constructors
     public Arrow() : this(Arrowhead.Steel, Fletching.Plastic, 60)
-    { }
+    {
+    }
 
     public Arrow(Arrowhead arrowhead, Fletching fletching, int length)
     {
@@ -177,7 +203,7 @@ internal class Arrow
     }
 
     //--------------------------------------------------
-
+    // Method to calculate the cost of the arrow based on its components.
     public float GetCost()
     {
         float cost;

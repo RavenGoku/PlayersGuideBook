@@ -12,7 +12,7 @@ Objectives:
 • Add in getter methods for each of the fields that you have. 
 */
 
-Console.Title = "VIN Trouble";
+Console.Title = "Vin's Trouble";
 
 DisplayMenu();
 Arrow first = CreateArrow();
@@ -165,9 +165,9 @@ Arrow CreateArrow()
 
 }
 //---------------------------------Arrow Class File with essentials-----------------
-public enum Arrowhead { Unknown, Steel, Wood, Obsidian };
-public enum Fletching { Unknown, Plastic, TurkeyFeathers, GooseFeathers };
-class Arrow
+internal enum Arrowhead { Unknown, Steel, Wood, Obsidian };
+internal enum Fletching { Unknown, Plastic, TurkeyFeathers, GooseFeathers };
+internal class Arrow
 {
     private Arrowhead _arrowhead;
     private Fletching _fletching;

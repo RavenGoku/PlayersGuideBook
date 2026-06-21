@@ -31,7 +31,6 @@ namespace Level24_TheCatacombsOfTheClass
         // as byte values ranging from 0 to 255. So no validation is needed for the values.
         private byte _red;
         private byte _green;
-
         private byte _blue;
 
         //

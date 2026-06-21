@@ -33,7 +33,8 @@ namespace Level24_TheCatacombsOfTheClass
         private byte _green;
         private byte _blue;
 
-        //
+        // Define public properties for the red, green,
+        // and blue channels that return the values of the backing fields.
         public byte RedChannel
         {
             get => _red;

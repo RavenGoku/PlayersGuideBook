@@ -62,7 +62,7 @@ Arrow CreateArrowType()
     while (true)
     {
         choice = Convert.ToInt32(Console.ReadLine());
-        Arrow response = choice switch
+        Arrow? response = choice switch
         {
             1 => Arrow.CreateBeginnerArrow(),
             2 => Arrow.CreateMarksmanArrow(),
@@ -254,6 +254,7 @@ internal class Arrow
     }
 
     //--------------------------------------------------
+    // Static factory methods to create specific types of arrows with predefined characteristics.
     public static Arrow CreateBeginnerArrow()
     {
         return new Arrow(Arrowhead.Wood, Fletching.GooseFeathers, 75);

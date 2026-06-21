@@ -82,7 +82,7 @@ public class Rectangle
 public class Player
 {
     //field to hold the name of the player, which is set through the constructor and cannot be changed afterward.
-    private readonly string _name;
+    private readonly string _name = "Player";
     public string Name { get; } = "Player1";
 
     //Constructor only allows setting the name of the player when creating an instance of the class.

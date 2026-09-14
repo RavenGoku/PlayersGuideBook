@@ -40,8 +40,7 @@ namespace Level24_TheCatacombsOfTheClass
         private ulong Passcode { get; set; }
         public DoorState CurrentState { get; private set; }
 
-        // The first constructor creates a door with a passcode that is provided by the user.
-        // The second constructor creates a door with a passcode that is provided as an argument.
+        // Constructor creates a door with a passcode that is provided by the user.
 
         public Door(ulong passcode)
         {

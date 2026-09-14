@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 using System.Dynamic;
+using System.Reflection.Metadata;
 using Level24_TheCatacombsOfTheClass;
 
 
@@ -61,74 +62,89 @@ using Level24_TheCatacombsOfTheClass;
 
 ////======================== End Card Class =========================
 
-Console.WriteLine("============================== Door Class ==============================");
-Door door = CreateDoor();
-Console.WriteLine($"Doors are {door.CurrentState}\n");
+//Console.WriteLine("============================== Door Class ==============================");
+//Door door = CreateDoor();
+//Console.WriteLine($"Doors are {door.CurrentState}\n");
+//DoorFunction(door);
 
-while (true)
-{
-    Console.WriteLine($"What would you like to do?");
-    Console.Write($"Input Open,Close,Lock, Unlock, Change Passcode or exit: ");
-    string? input = Console.ReadLine();
-    DoorState response = input.ToLower() switch
-    {
-        "open" => door.Open(),
-        "close" => door.Close(),
-        "lock" => door.Lock(),
-        "unlock" => door.Unlock(PromptForUnlock("Enter passcode to unlock")),
-        _ => door.CurrentState
-    };
-    if (input.ToLower() == "change passcode")
-    {
-        door.PasscodeChange(PromptForUnlock("Enter current passcode"),
-            PromptForUnlock("Enter new passcode"));
-    }
 
-    if (input == "exit") break;
-    Console.Clear();
-    Console.WriteLine($"The Door is {door.CurrentState}\n");
-}
+//void DoorFunction(Door door)
+//{
+//    while (true)
+//    {
+//        Console.WriteLine($"What would you like to do?");
+//        Console.Write($"Input Open,Close,Lock, Unlock, Change Passcode or exit: ");
+//        string? input = Console.ReadLine();
+//        DoorState response = input.ToLower() switch
+//        {
+//            "open" => door.Open(),
+//            "close" => door.Close(),
+//            "lock" => door.Lock(),
+//            "unlock" => door.Unlock(PromptForUnlock("Enter passcode to unlock")),
+//            _ => door.CurrentState
+//        };
+//        if (input.ToLower() == "change passcode")
+//        {
+//            door.PasscodeChange(PromptForUnlock("Enter current passcode"),
+//                PromptForUnlock("Enter new passcode"));
+//        }
 
-ulong PromptForUnlock(string message)
-{
-    ulong passcodeResult;
-    bool isValid = false;
-    do
-    {
-        Console.Write($"{message}: ");
-        string input = Console.ReadLine();
-        isValid = ulong.TryParse(input, out passcodeResult);
+//        if (input == "exit") break;
+//        Console.Clear();
+//        Console.WriteLine($"The Door is {door.CurrentState}\n");
+//    }
+//}
 
-        if (!isValid)
-        {
-            Console.WriteLine("Numeric passcode only");
-        }
-    } while (!isValid);
+//ulong PromptForUnlock(string message)
+//{
+//    ulong passcodeResult;
+//    bool isValid = false;
+//    do
+//    {
+//        Console.Write($"{message}: ");
+//        string input = Console.ReadLine();
+//        isValid = ulong.TryParse(input, out passcodeResult);
 
-    return passcodeResult;
-}
+//        if (!isValid)
+//        {
+//            Console.WriteLine("Numeric passcode only");
+//        }
+//    } while (!isValid);
 
-Door CreateDoor()
-{
-    ulong passcode;
-    bool isValid = false;
-    do
-    {
-        Console.Write("Create passcode for you door: ");
-        string input = Console.ReadLine();
-        isValid = ulong.TryParse(input, out passcode);
-        if (!isValid)
-        {
-            Console.WriteLine("Only numeric values!");
-        }
-        else
-        {
-            Console.WriteLine("Door and passcode created.");
-        }
-    } while (!isValid);
+//    return passcodeResult;
+//}
 
-    return new Door(passcode);
-}
+//Door CreateDoor()
+//{
+//    ulong passcode;
+//    bool isValid = false;
+//    do
+//    {
+//        Console.Write("Create passcode for you door: ");
+//        string input = Console.ReadLine();
+//        isValid = ulong.TryParse(input, out passcode);
+//        if (!isValid)
+//        {
+//            Console.WriteLine("Only numeric values!");
+//        }
+//        else
+//        {
+//            Console.WriteLine("Door and passcode created.");
+//        }
+//    } while (!isValid);
+
+//    return new Door(passcode);
+//}
+////======================== End Door Class =========================
+
+string password = "aAa6aaaaaaa";
+
+bool isValid = PasswordValidator.Check(password);
+
+if (isValid)
+    Console.WriteLine($"Password is valid.");
+else
+    Console.WriteLine($"password is not valid");
 
 
 Console.WriteLine("\n");

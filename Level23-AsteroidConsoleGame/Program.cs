@@ -1,4 +1,4 @@
-﻿AsteroidsGame game = new AsteroidsGame();
+﻿AsteroidsGame game = new AsteroidsGame(new Asteroid[5]);
 game.Run();
 
 
@@ -35,14 +35,9 @@ public class AsteroidsGame
     private Asteroid[] _asteroids;
 
     // Constructor, that initializes the asteroids in the game
-    public AsteroidsGame()
+    public AsteroidsGame(Asteroid[] startingAsteroids)
     {
-        _asteroids = new Asteroid[5];
-        _asteroids[0] = new Asteroid(100, 200, -4, -2);
-        _asteroids[1] = new Asteroid(-50, 100, -1, +3);
-        _asteroids[2] = new Asteroid(0, 0, 2, 1);
-        _asteroids[3] = new Asteroid(400, -100, -3, -1);
-        _asteroids[4] = new Asteroid(200, -300, 0, 3);
+        _asteroids = startingAsteroids;
     }
 
     public void Run()

@@ -10,43 +10,18 @@ namespace TicTacToeGame
         private int AvailableSquaresCount { get; set; }
         public int AvailableSquares => AvailableSquaresCount;
 
-        private char[] SquareSpaces { get; set; }
+        public char[] SquareSpaces { get; set; }
 
         //ctor
         public Board()
         {
-            SquareSpaces = new char[9] { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+            SquareSpaces = new char[9];
+            for (int i = 0; i < SquareSpaces.Length; i++)
+            {
+                SquareSpaces[i] = ' ';
+            }
+
             AvailableSquaresCount = SquareSpaces.Length;
-        }
-
-        public void ShowBoard()
-        {
-            string board;
-
-            // Create variables string board rows to create a 3x3 grid format
-            string boardRow1 = $" {SquareSpaces[6]} | {SquareSpaces[7]} | {SquareSpaces[8]} ";
-            string boardRow2 = $" {SquareSpaces[3]} | {SquareSpaces[4]} | {SquareSpaces[5]} ";
-            string boardRow3 = $" {SquareSpaces[0]} | {SquareSpaces[1]} | {SquareSpaces[2]} ";
-
-            // Create a line of dashes based on the width of the boardRow 
-            int width = boardRow1.Length / 3;
-            string line = new string('-', width);
-            line += new string("+");
-            line += new string('-', width);
-            line += new string("+");
-            line += new string('-', width);
-            // Create the board string with borders and lines
-
-
-            board = $"{boardRow1}\n";
-            board += $"{line}\n";
-            board += $"{boardRow2}\n";
-            board += $"{line}\n";
-            board += $"{boardRow3}\n";
-
-
-            // Display the board
-            Console.WriteLine(board);
         }
 
 
@@ -90,7 +65,7 @@ namespace TicTacToeGame
         //Valid Square is different than number, to assign to X or O,
         public bool IsSquareAvailable(char BoardSquare)
         {
-            if (char.IsNumber(BoardSquare))
+            if (char.IsSeparator(BoardSquare))
                 return true;
 
             return false;

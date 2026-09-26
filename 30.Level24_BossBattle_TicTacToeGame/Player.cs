@@ -10,13 +10,10 @@ namespace TicTacToeGame
         public PlayerSymbol Symbol { get; init; }
         public string Name { get; init; }
         public ConsoleColor PlayerColor { get; init; }
-        public int Wins { get; set; }
-        public int Losses { get; set; }
-        public int Draws { get; set; }
+        private int Wins { get; set; }
+        private int Losses { get; set; }
+        private int Draws { get; set; }
 
-        public Player() : this("Player", PlayerSymbol.O, ConsoleColor.White)
-        {
-        }
 
         public Player(string name, PlayerSymbol newSymbol, ConsoleColor newColor)
         {
@@ -27,8 +24,40 @@ namespace TicTacToeGame
             Losses = 0;
             Draws = 0;
         }
+
+
+        public void AddWin()
+        {
+            Wins++;
+        }
+
+        public void AddLose()
+        {
+            Losses++;
+        }
+
+        public void AddDraw()
+        {
+            Draws++;
+        }
+
+        public int GetWins()
+        {
+            return Wins;
+        }
+
+        public int GetLoses()
+        {
+            return Losses;
+        }
+
+        public int GetDraws()
+        {
+            return Draws;
+        }
     }
 
     // Enum to represent player symbols
+
     public enum PlayerSymbol { O = 'O', X = 'X' };
 }

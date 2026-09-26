@@ -11,21 +11,9 @@ namespace TicTacToeGame
             UserInterface.Title();
             UserInterface.TutorialMessage();
 
-            while (true)
-            {
-                Console.Write("Would you like to start? (y/n): ");
-                string? startGame = Console.ReadLine()?.ToUpper();
+            if (UserInterface.GameStartingQuestion() == "N")
+                return;
 
-                if (startGame == "N")
-                {
-                    Console.WriteLine("Exiting Game.");
-                    return;
-                }
-                else if (startGame == "Y")
-                    break;
-
-                Console.WriteLine("invalid input. Please try Y or N");
-            }
 
             //Create two players and ask for their names and symbols
             string playerName = UserInterface.AskForPlayerName(1);
@@ -51,17 +39,7 @@ namespace TicTacToeGame
 
                 UserInterface.Title();
                 UserInterface.Display(playerOne, playerTwo, board);
-
-
-                Console.Write($"Which player starts? ({playerOne.Name} 1 or {playerTwo.Name} 2): ");
-                string? playerStart = Console.ReadLine();
-                while (playerStart != "1" && playerStart != "2")
-                {
-                    Console.Write("Invalid input! Try 1 or 2: ");
-                    playerStart = Console.ReadLine();
-                }
-
-                Player currentPlayer = playerStart == "1" ? playerOne : playerTwo;
+                Player currentPlayer = UserInterface.PlayerChoice(playerOne, playerTwo);
 
 
                 while (true)
@@ -77,13 +55,13 @@ namespace TicTacToeGame
                     {
                         if (currentPlayer == playerOne)
                         {
-                            playerOne.Wins++;
-                            playerTwo.Losses++;
+                            playerOne.AddWin();
+                            playerTwo.AddLose();
                         }
                         else
                         {
-                            playerTwo.Wins++;
-                            playerOne.Losses++;
+                            playerOne.AddLose();
+                            playerTwo.AddWin();
                         }
 
                         isWinOrDraw = RoundResult.Win;
@@ -92,8 +70,8 @@ namespace TicTacToeGame
 
                     if (board.IsGameDraw())
                     {
-                        playerOne.Draws++;
-                        playerTwo.Draws++;
+                        playerOne.AddDraw();
+                        playerTwo.AddDraw();
                         isWinOrDraw = RoundResult.Draw;
                         break;
                     }
@@ -119,22 +97,7 @@ namespace TicTacToeGame
                     Console.WriteLine("It's a Draw!");
                 }
 
-                while (true)
-                {
-                    Console.Write("Would you like to play again? (y/n): ");
-                    playAgain = Console.ReadLine()?.ToUpper();
-                    if (playAgain == "Y")
-                    {
-                        break;
-                    }
-
-                    if (playAgain == "N")
-                    {
-                        break;
-                    }
-
-                    Console.WriteLine("Invalid input. Please input Y or N.");
-                }
+                playAgain = UserInterface.PlayAgain();
             } while (playAgain == "Y");
         }
     }

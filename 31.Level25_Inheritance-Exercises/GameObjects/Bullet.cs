@@ -6,5 +6,6 @@ namespace _31.Level25_Inheritance_Exercises
 {
     internal class Bullet : GameObject
     {
+
     }
 }

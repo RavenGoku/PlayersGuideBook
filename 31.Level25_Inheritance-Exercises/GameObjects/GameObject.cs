@@ -6,10 +6,22 @@ namespace _31.Level25_Inheritance_Exercises
 {
     internal class GameObject
     {
-        public float PositionX { get; set; }
-        public float PositionY { get; set; }
-        public float VelocityX { get; set; }
-        public float VelocityY { get; set; }
+        public GameObject() : this (0,0,0,0)
+        {
+
+        }
+        //ctor
+        public GameObject(float posX, float posY, float velocityX, float velocityY)
+        {
+            PositionX = posX;
+            PositionY = posY;
+            VelocityX = velocityX;
+            VelocityY = velocityY;
+        }
+        public float PositionX { get; protected set; }
+        public float PositionY { get; protected set; }
+        public float VelocityX { get; protected set; }
+        public float VelocityY { get; protected set; }
         public void Update()
         {
             PositionX += VelocityX;

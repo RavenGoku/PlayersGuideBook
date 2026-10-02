@@ -39,7 +39,7 @@ Pack Backpack = new Pack(10, 25, 15);
 //
 Console.WriteLine("=== PACKING INVENTORY ===\n\n");
 Console.WriteLine("A long journey awaits. Pack your supplies wisely!\r\n" +
-                  $"Your backpack has limits for item count: {Backpack.GetMaxItems}\n, weight:{Backpack.MaxWeight}\n, and volume:{Backpack.MaxVolume}.\n\n");
+                  $"Your backpack has limits for:\n - Item count: {Backpack.GetMaxItems()}\n - Weight:{Backpack.MaxWeight}\n - Volume:{Backpack.MaxVolume}.\n\n");
 Console.WriteLine("Choose an item to add:\n" +
                   "1. Arrow  \n" +
                   "2. Bow\n" +
@@ -54,7 +54,7 @@ int choice;
 while (true)
 {
     Console.WriteLine("Backpack Status:\n" +
-        $"- Items: {Backpack.ItemCount}/{Backpack.GetMaxItems}\n" +
+        $"- Items: {Backpack.ItemCount}/{Backpack.GetMaxItems()}\n" +
         $"- Weight: {Backpack.Weight}/{Backpack.MaxWeight}\n" +
         $"- Volume: {Backpack.Volume}/{Backpack.MaxVolume}");
     Console.Write("\nYour choice:");

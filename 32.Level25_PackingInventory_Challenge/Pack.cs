@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using Microsoft.VisualBasic;
 
@@ -9,26 +10,25 @@ namespace PackingInventoryChallenge
     {
         public Pack(int maxItemCount,int maxWeight, int maxVolume)
         {
-            MaxItemsArray = new InventoryItem[maxItemCount];
+            MaxItems = new InventoryItem[maxItemCount];
             MaxWeight = maxWeight;
             MaxVolume = maxVolume;
             Weight = 0;
             Volume = 0;
 
         }
-        private InventoryItem[] MaxItemsArray { get; init; }
-        public int MaxWeight { get; init; }
-        public int MaxVolume { get; init; }
+        private InventoryItem[] MaxItems { get; }
+        public int MaxItemCount => MaxItems.Length;
+        public int MaxWeight { get; }
+        public int MaxVolume { get; }
         public float Weight { get; private set; }
         public float Volume { get; private set; }
         public int ItemCount { get; private set; }
         public PackResult Result { get; private set; }
 
-        public int GetMaxItems() => MaxItemsArray.Length;
-
         public bool Add(InventoryItem item)
         {
-            if (ItemCount >= MaxItemsArray.Length )
+            if (ItemCount >= MaxItems.Length )
             {
                 Result = PackResult.TooManyItems;
                 return false;
@@ -48,7 +48,7 @@ namespace PackingInventoryChallenge
             ItemCount++;
             Weight += item.Weight;
             Volume += item.Volume;
-            MaxItemsArray[ItemCount - 1] = item;
+            MaxItems[ItemCount - 1] = item;
 
             return true;
         }

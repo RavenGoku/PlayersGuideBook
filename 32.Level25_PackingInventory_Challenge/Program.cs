@@ -66,32 +66,25 @@ while (true)
     }
     else
     {
-        switch(choice)
+        if (choice == 0)
+            return;
+
+        InventoryItem item = choice switch
         {
 
-            case 1:
-                backpack.Add(new Arrow());
-                break;
-            case 2:
-                backpack.Add(new Bow());
-                break;
-            case 3:
-                backpack.Add(new Rope());
-                break;
-            case 4:
-                backpack.Add(new Water());
-                break;
-            case 5:
-                backpack.Add(new FoodRations());
-                break;
-            case 6:
-                backpack.Add(new Sword());
-                break;
-            case 0:
-                return;
-              
+            1 => new Arrow(),
+            2 => new Bow(),
+            3 => new Rope(),
+            4 => new Water(),
+            5 => new FoodRations(),
+            6 => new Sword(),
+            _ => null
+        };
 
-        }
+        if (!backpack.Add(item))
+            Console.WriteLine("That item won't fit in your pack.");
+         else
+            Console.WriteLine("Item added!");
 
     }
 

@@ -32,12 +32,14 @@ Objectives:
    chosen from a menu. */
 
 using PackingInventoryChallenge;
+using System.Linq.Expressions;
 
-Pack Backpack = new Pack(5, 10, 15);
+Pack Backpack = new Pack(10, 25, 15);
 
+//
 Console.WriteLine("=== PACKING INVENTORY ===\n\n");
 Console.WriteLine("A long journey awaits. Pack your supplies wisely!\r\n" +
-                  "Your backpack has limits for item count, weight, and volume.\n\n");
+                  $"Your backpack has limits for item count: {Backpack.MaxItems.Length}, weight:{Backpack.MaxWeight}, and volume:{Backpack.MaxVolume}.\n\n");
 Console.WriteLine("Choose an item to add:\n" +
                   "1. Arrow  \n" +
                   "2. Bow\n" +
@@ -47,6 +49,53 @@ Console.WriteLine("Choose an item to add:\n" +
                   "6. Sword\n" +
                   "0. Finish packing\n\n");
 
-Console.WriteLine("Your choice:");
+int choice;
+
+while (true)
+{
+    Console.WriteLine("Backpack Status:\n" +
+        $"- Items: {Backpack.itemCount}/{Backpack.MaxItems.Length}\n" +
+        $"- Weight: {Backpack.Weight}/{Backpack.MaxWeight}\n" +
+        $"- Volume: {Backpack.Volume}/{Backpack.MaxVolume}");
+    Console.Write("\nYour choice:");
+    if (!int.TryParse(Console.ReadLine(), out choice) || (choice < 0) || (choice > 6) )
+    {
+
+        Console.WriteLine("Wrong input!. Try again.\n");
+
+    }
+    else
+    {
+        switch(choice)
+        {
+
+            case 1:
+                Backpack.AddItem(new Arrow());
+                break;
+            case 2:
+                Backpack.AddItem(new Bow());
+                break;
+            case 3:
+                Backpack.AddItem(new Rope());
+                break;
+            case 4:
+                Backpack.AddItem(new Water());
+                break;
+            case 5:
+                Backpack.AddItem(new FoodRations());
+                break;
+            case 6:
+                Backpack.AddItem(new Sword());
+                break;
+            case 0:
+                return;
+              
+
+        }
+        Console.WriteLine(Backpack.Result);
+
+    }
+
+}
 
 

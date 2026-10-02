@@ -7,13 +7,13 @@ namespace PackingInventoryChallenge
     public class InventoryItem
     {
         // Constructor to initialize the weight and volume of the inventory item
-        public InventoryItem(float weight,float volume)
+        public InventoryItem(decimal weight,decimal volume)
         {
             Weight = weight;
             Volume = volume;
         }
         // Properties to get the weight and volume of the inventory item
-        public float Weight { get;}
-        public float Volume { get; }
+        public decimal Weight { get;}
+        public decimal Volume { get; }
     }
 }

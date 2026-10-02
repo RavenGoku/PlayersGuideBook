@@ -10,45 +10,41 @@ namespace PackingInventoryChallenge
     {
         public Pack(int maxItemCount,int maxWeight, int maxVolume)
         {
-            MaxItems = new InventoryItem[maxItemCount];
+            _items = new InventoryItem[maxItemCount];
+            MaxItemCount = _items.Length;
             MaxWeight = maxWeight;
             MaxVolume = maxVolume;
             Weight = 0;
             Volume = 0;
 
         }
-        private InventoryItem[] MaxItems { get; }
-        public int MaxItemCount => MaxItems.Length;
+        private readonly InventoryItem[] _items;
+        public int MaxItemCount { get; }
         public int MaxWeight { get; }
         public int MaxVolume { get; }
-        public float Weight { get; private set; } 
-        public float Volume { get; private set; } 
+        public decimal Weight { get; private set; } 
+        public decimal Volume { get; private set; } 
         public int ItemCount { get; private set; }
-        public PackResult Result { get; private set; }
 
         public bool Add(InventoryItem item)
         {
-            if (ItemCount >= MaxItems.Length )
+            if (ItemCount >= _items.Length )
             {
-                Result = PackResult.TooManyItems;
                 return false;
             }
             if (item.Weight + Weight > MaxWeight)
             {
-                Result = PackResult.TooHeavy;
                 return false;
             }
             if (item.Volume + Volume > MaxVolume)
             {
-                Result = PackResult.NotEnoughSpace;
                 return false;
             }
 
-            Result = PackResult.Success;
             ItemCount++;
             Weight += item.Weight;
             Volume += item.Volume;
-            MaxItems[ItemCount - 1] = item;
+            _items[ItemCount - 1] = item;
 
             return true;
         }

@@ -34,12 +34,12 @@ Objectives:
 using PackingInventoryChallenge;
 using System.Linq.Expressions;
 
-Pack Backpack = new Pack(10, 25, 15);
+Pack backpack = new Pack(10, 25, 15);
 
 //
 Console.WriteLine("=== PACKING INVENTORY ===\n\n");
 Console.WriteLine("A long journey awaits. Pack your supplies wisely!\r\n" +
-                  $"Your backpack has limits for:\n - Item count: {Backpack.MaxItemCount}\n - Weight:{Backpack.MaxWeight}\n - Volume:{Backpack.MaxVolume}.\n\n");
+                  $"Your backpack has limits for:\n - Item count: {backpack.MaxItemCount}\n - Weight:{backpack.MaxWeight}\n - Volume:{backpack.MaxVolume}.\n\n");
 Console.WriteLine("Choose an item to add:\n" +
                   "1. Arrow  \n" +
                   "2. Bow\n" +
@@ -54,9 +54,9 @@ int choice;
 while (true)
 {
     Console.WriteLine("Backpack Status:\n" +
-        $"- Items: {Backpack.ItemCount}/{Backpack.MaxItemCount}\n" +
-        $"- Weight: {Backpack.Weight}/{Backpack.MaxWeight}\n" +
-        $"- Volume: {Backpack.Volume}/{Backpack.MaxVolume}");
+        $"- Items: {backpack.ItemCount}/{backpack.MaxItemCount}\n" +
+        $"- Weight: {backpack.Weight}/{backpack.MaxWeight}\n" +
+        $"- Volume: {backpack.Volume}/{backpack.MaxVolume}");
     Console.Write("\nYour choice:");
     if (!int.TryParse(Console.ReadLine(), out choice) || (choice < 0) || (choice > 6) )
     {
@@ -70,29 +70,28 @@ while (true)
         {
 
             case 1:
-                Backpack.Add(new Arrow());
+                backpack.Add(new Arrow());
                 break;
             case 2:
-                Backpack.Add(new Bow());
+                backpack.Add(new Bow());
                 break;
             case 3:
-                Backpack.Add(new Rope());
+                backpack.Add(new Rope());
                 break;
             case 4:
-                Backpack.Add(new Water());
+                backpack.Add(new Water());
                 break;
             case 5:
-                Backpack.Add(new FoodRations());
+                backpack.Add(new FoodRations());
                 break;
             case 6:
-                Backpack.Add(new Sword());
+                backpack.Add(new Sword());
                 break;
             case 0:
                 return;
               
 
         }
-        Console.WriteLine(Backpack.Result);
 
     }
 

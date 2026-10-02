@@ -39,7 +39,7 @@ Pack Backpack = new Pack(10, 25, 15);
 //
 Console.WriteLine("=== PACKING INVENTORY ===\n\n");
 Console.WriteLine("A long journey awaits. Pack your supplies wisely!\r\n" +
-                  $"Your backpack has limits for item count: {Backpack.MaxItems.Length}, weight:{Backpack.MaxWeight}, and volume:{Backpack.MaxVolume}.\n\n");
+                  $"Your backpack has limits for item count: {Backpack.GetMaxItems}\n, weight:{Backpack.MaxWeight}\n, and volume:{Backpack.MaxVolume}.\n\n");
 Console.WriteLine("Choose an item to add:\n" +
                   "1. Arrow  \n" +
                   "2. Bow\n" +
@@ -54,7 +54,7 @@ int choice;
 while (true)
 {
     Console.WriteLine("Backpack Status:\n" +
-        $"- Items: {Backpack.itemCount}/{Backpack.MaxItems.Length}\n" +
+        $"- Items: {Backpack.ItemCount}/{Backpack.GetMaxItems}\n" +
         $"- Weight: {Backpack.Weight}/{Backpack.MaxWeight}\n" +
         $"- Volume: {Backpack.Volume}/{Backpack.MaxVolume}");
     Console.Write("\nYour choice:");
@@ -70,22 +70,22 @@ while (true)
         {
 
             case 1:
-                Backpack.AddItem(new Arrow());
+                Backpack.Add(new Arrow());
                 break;
             case 2:
-                Backpack.AddItem(new Bow());
+                Backpack.Add(new Bow());
                 break;
             case 3:
-                Backpack.AddItem(new Rope());
+                Backpack.Add(new Rope());
                 break;
             case 4:
-                Backpack.AddItem(new Water());
+                Backpack.Add(new Water());
                 break;
             case 5:
-                Backpack.AddItem(new FoodRations());
+                Backpack.Add(new FoodRations());
                 break;
             case 6:
-                Backpack.AddItem(new Sword());
+                Backpack.Add(new Sword());
                 break;
             case 0:
                 return;

@@ -13,7 +13,7 @@ namespace PackingInventoryChallenge
             Volume = volume;
         }
         // Properties to get the weight and volume of the inventory item
-        private float Weight { get;}
-        private float Volume { get; }
+        public float Weight { get;}
+        public float Volume { get; }
     }
 }

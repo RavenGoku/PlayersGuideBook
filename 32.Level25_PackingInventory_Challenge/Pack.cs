@@ -21,8 +21,8 @@ namespace PackingInventoryChallenge
         public int MaxItemCount => MaxItems.Length;
         public int MaxWeight { get; }
         public int MaxVolume { get; }
-        public float Weight { get; private set; }
-        public float Volume { get; private set; }
+        public float Weight { get; private set; } 
+        public float Volume { get; private set; } 
         public int ItemCount { get; private set; }
         public PackResult Result { get; private set; }
 

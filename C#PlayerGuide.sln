@@ -123,6 +123,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "33.Level26_Polymorphism-Exc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "34.Level26_LabelingInventoryChallenge", "34.Level26_LabelingInventoryChallenge\34.Level26_LabelingInventoryChallenge.csproj", "{495C71CB-A0F3-4F90-8CB0-A62F4106BD1F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "35.Level26_TheOldRobot_Challenge", "35.Level26_TheOldRobot_Challenge\35.Level26_TheOldRobot_Challenge.csproj", "{7F8CE8C6-5941-4F72-8735-AB3D5FBA1325}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -281,6 +283,10 @@ Global
 		{495C71CB-A0F3-4F90-8CB0-A62F4106BD1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{495C71CB-A0F3-4F90-8CB0-A62F4106BD1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{495C71CB-A0F3-4F90-8CB0-A62F4106BD1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F8CE8C6-5941-4F72-8735-AB3D5FBA1325}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F8CE8C6-5941-4F72-8735-AB3D5FBA1325}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F8CE8C6-5941-4F72-8735-AB3D5FBA1325}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F8CE8C6-5941-4F72-8735-AB3D5FBA1325}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -341,6 +347,7 @@ Global
 		{64E23D2D-CCDA-414C-B79F-7CBC0E0E787E} = {40B322DC-92A0-4B08-B218-50189D4C9B38}
 		{B498EAA8-BBB8-4387-B21B-4833175EDEEC} = {64E23D2D-CCDA-414C-B79F-7CBC0E0E787E}
 		{495C71CB-A0F3-4F90-8CB0-A62F4106BD1F} = {64E23D2D-CCDA-414C-B79F-7CBC0E0E787E}
+		{7F8CE8C6-5941-4F72-8735-AB3D5FBA1325} = {64E23D2D-CCDA-414C-B79F-7CBC0E0E787E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B26B264D-5DA0-495D-8E42-55AE184A9AA2}

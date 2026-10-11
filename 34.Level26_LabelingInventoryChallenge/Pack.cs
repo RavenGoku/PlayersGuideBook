@@ -54,12 +54,19 @@ namespace PackingInventoryChallenge
         public override string ToString()
         {
             string itemName = "Pack Containing: ";
-            foreach (InventoryItem item in _items)
+
+            //GetItem is a local function that returns the string representation of an InventoryItem
+            string GetItem(InventoryItem item) => item.ToString();
+
+            //Use of GetItem local function to sort the items in the pack by their string representation
+            InventoryItem[] _sortedItems = _items.Take(ItemCount).OrderBy(GetItem).ToArray();
+
+            for (int i = 0; i < ItemCount; i++)
             {
-                itemName += item + " ";
+                itemName += _sortedItems[i] + " ";
             }
 
-            return itemName;
+            return itemName.TrimEnd();
         }
     }
 

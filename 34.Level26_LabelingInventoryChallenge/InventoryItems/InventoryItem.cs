@@ -16,7 +16,8 @@ namespace PackingInventoryChallenge
             Volume = volume;
         }
 
-        
+        public override string ToString() => GetType().Name;
+
 
         // Properties to get the weight and volume of the inventory item
         public decimal Weight { get; }

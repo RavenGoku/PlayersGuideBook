@@ -8,7 +8,6 @@ namespace PackingInventoryChallenge
     {
         public Bow() : base(1, 4)
         {
-
         }
     }
 }

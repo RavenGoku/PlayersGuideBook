@@ -54,15 +54,13 @@ int choice;
 while (true)
 {
     Console.WriteLine("Backpack Status:\n" +
-        $"- Items: {backpack.ItemCount}/{backpack.MaxItemCount}\n" +
-        $"- Weight: {backpack.Weight}/{backpack.MaxWeight}\n" +
-        $"- Volume: {backpack.Volume}/{backpack.MaxVolume}");
+                      $"- Items: {backpack.ItemCount}/{backpack.MaxItemCount}\n" +
+                      $"- Weight: {backpack.Weight}/{backpack.MaxWeight}\n" +
+                      $"- Volume: {backpack.Volume}/{backpack.MaxVolume}");
     Console.Write("\nYour choice:");
-    if (!int.TryParse(Console.ReadLine(), out choice) || (choice < 0) || (choice > 6) )
+    if (!int.TryParse(Console.ReadLine(), out choice) || (choice < 0) || (choice > 6))
     {
-
         Console.WriteLine("Wrong input!. Try again.\n");
-
     }
     else
     {
@@ -71,7 +69,6 @@ while (true)
 
         InventoryItem item = choice switch
         {
-
             1 => new Arrow(),
             2 => new Bow(),
             3 => new Rope(),
@@ -83,11 +80,7 @@ while (true)
 
         if (!backpack.Add(item))
             Console.WriteLine("That item won't fit in your pack.");
-         else
+        else
             Console.WriteLine("Item added!");
-
     }
-
 }
-
-

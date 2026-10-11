@@ -9,9 +9,9 @@ namespace PackingInventoryChallenge
         // Constructor to initialize the weight and volume of the arrow
         public Arrow() : base(0.1m, 0.05m)
         {
-           
+            Damage = 10;
         }
-        
+
         public float Damage { get; }
     }
 }

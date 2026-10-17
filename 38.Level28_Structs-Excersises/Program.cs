@@ -71,6 +71,7 @@ public class PairOfPairs
 //
 // Avoid large structs when frequent copying could introduce
 // unnecessary performance overhead.
+
 public struct CircleStruct
 {
     public double X { get; }

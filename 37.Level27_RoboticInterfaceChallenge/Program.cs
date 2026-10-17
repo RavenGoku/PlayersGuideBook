@@ -47,11 +47,6 @@ for (int i = 0; i < robot.Commands.Length;)
 {
     Console.Write($"Enter command {i + 1}/3: ");
     string? command = Console.ReadLine()?.ToUpper().Trim();
-    while (string.IsNullOrEmpty(command) || double.TryParse(command, out _))
-    {
-        Console.Write($"Wrong Command, try again {i + 1}/3: ");
-        command = Console.ReadLine()?.ToUpper().Trim();
-    }
 
     switch (command)
     {

@@ -49,3 +49,10 @@ foreach (Coordinate room in rooms)
 {
     Console.WriteLine(currentRoom.IsAdjacent(room));
 }
+
+
+//----------------------------------------------------
+int Grid(int size)
+{
+    return size * size;
+}

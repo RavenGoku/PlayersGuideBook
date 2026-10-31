@@ -137,6 +137,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "40.Level29_Records-Excersis
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "41.Level29_WarPreparationChallenge", "41.Level29_WarPreparationChallenge\41.Level29_WarPreparationChallenge.csproj", "{2AFE922D-EC14-49B7-9F70-9AB23D7E99A0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Level30-Generics", "Level30-Generics", "{F8EFFF81-B0E6-4394-8BCE-655A19D5F33C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "42.Level30_GenericTypes_Exercises", "42.Level30_GenericTypes_Exercises\42.Level30_GenericTypes_Exercises.csproj", "{BA72DC39-8B65-4805-B968-A8F64DE4D867}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -311,6 +315,10 @@ Global
 		{2AFE922D-EC14-49B7-9F70-9AB23D7E99A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2AFE922D-EC14-49B7-9F70-9AB23D7E99A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2AFE922D-EC14-49B7-9F70-9AB23D7E99A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA72DC39-8B65-4805-B968-A8F64DE4D867}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA72DC39-8B65-4805-B968-A8F64DE4D867}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA72DC39-8B65-4805-B968-A8F64DE4D867}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA72DC39-8B65-4805-B968-A8F64DE4D867}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -381,6 +389,8 @@ Global
 		{B6B121E8-E8B1-4ADD-AD4D-9079A641A830} = {40B322DC-92A0-4B08-B218-50189D4C9B38}
 		{BB4155BB-D857-4E7A-84EA-50288EF0FFC6} = {B6B121E8-E8B1-4ADD-AD4D-9079A641A830}
 		{2AFE922D-EC14-49B7-9F70-9AB23D7E99A0} = {B6B121E8-E8B1-4ADD-AD4D-9079A641A830}
+		{F8EFFF81-B0E6-4394-8BCE-655A19D5F33C} = {40B322DC-92A0-4B08-B218-50189D4C9B38}
+		{BA72DC39-8B65-4805-B968-A8F64DE4D867} = {F8EFFF81-B0E6-4394-8BCE-655A19D5F33C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B26B264D-5DA0-495D-8E42-55AE184A9AA2}

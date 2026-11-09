@@ -1,6 +1,4 @@
-﻿using static _42.Level30_GenericTypes_Exercises.Program.List2<T>;
-
-namespace _42.Level30_GenericTypes_Exercises
+﻿namespace _42.Level30_GenericTypes_Exercises
 {
     internal class Program
     {
@@ -71,6 +69,7 @@ namespace _42.Level30_GenericTypes_Exercises
         {
             // The List class creates an array of type T and initializes it to an empty array.
             private T[] _items = new T[0];
+
             private int _length;
 
             public int Lenght
@@ -92,39 +91,36 @@ namespace _42.Level30_GenericTypes_Exercises
                 update[^1] = value;
                 _items = update;
             }
+        }
+        //----------------------------------------------------------------------------------------------------
+        //************************* Multiple Generic Type Parameters *****************************************
+        //----------------------------------------------------------------------------------------------------
 
+        // You can also have multiple generic type parameters by listing them in the angle brackets,
+        // separated by commas.
 
-            //----------------------------------------------------------------------------------------------------
-            //************************* Multiple Generic Type Parameters *****************************************
-            //----------------------------------------------------------------------------------------------------
+        public class Pair<TFirst, TSecond>
+        {
+            public TFirst First { get; }
+            public TSecond Second { get; }
 
-            // You can also have multiple generic type parameters by listing them in the angle brackets,
-            // separated by commas.
-
-            public class Pair<TFirst, TSecond>
+            public Pair(TFirst first, TSecond second)
             {
-                public TFirst First { get; }
-                public TSecond Second { get; }
+                First = first;
+                Second = second;
+            }
+        }
 
-                public Pair(TFirst first, TSecond second)
-                {
-                    First = first;
-                    Second = second;
-                }
+        //------------------- Generic Methods
+        public static List2<T> Repeat<T>(T value, int times)
+        {
+            List2<T> collections = new List2<T>();
+            for (int i = 0; i < times; i++)
+            {
+                collections.Add(value);
             }
 
-            //------------------- Generic Methods
-            public static List2<T> Repeat<T>(T value, int times)
-            {
-                List2<T> collections = new List2<T>();
-                for (int i = 0; i < times; i++)
-                {
-                    collections.Add(value);
-                }
-
-                return collections;
-            }
-
+            return collections;
         }
     }
 }
